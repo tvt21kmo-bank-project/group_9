@@ -1,7 +1,7 @@
 #include "numpad.h"
 #include "ui_numpad.h"
 
-#define PASSWORD 1234
+//#define PASSWORD 1234 voi poistaa
 
 #if defined (MY_DEBUG)
 //bankautomat.pro tiedostossa voi poistaa ylläolevan määrittelyn tarvittaessa. Tämä oli vain Antin debuggausta varten..
@@ -40,12 +40,14 @@ void Numpad::on_btnPeruuta_clicked()
 
 void Numpad::on_btnNostaSumma_clicked()
 {
+    /* voi poistaa
     const double passwd = ui->lcdNumber->value();
     if (passwd == PASSWORD){
         accept();
         return;
     }
     reject();
+    */
 }
 
 void Numpad::kunOnPainettu(const QString &number)

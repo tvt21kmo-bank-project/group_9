@@ -5,7 +5,8 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    a.setStyle("fusion");
+
+    /* tämän voi poistaa, testasin loginia numpadilla
     Numpad login;
     int loginResult;
     do {
@@ -14,11 +15,12 @@ int main(int argc, char *argv[])
             QMessageBox::warning(&login, "Virhe", "Tunnus tai salasana väärin");
         }
     } while (loginResult == QDialog::Rejected);
+    */
+
     MainWindow w;
-    w.showFullScreen();
-    w.showNormal();
-   // w.show();
+    w.show();
     return a.exec();
+
     /*
     Mainwindow w;
     w.setWindowState(Qt::WindowFullScreen);
