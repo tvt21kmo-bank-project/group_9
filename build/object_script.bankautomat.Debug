@@ -1,0 +1,11 @@
+debug/main.o
+debug/mainwindow.o
+debug/nosto.o
+debug/numpad.o
+debug/numpadbuttons.o
+debug/pankki.o
+debug/moc_mainwindow.o
+debug/moc_nosto.o
+debug/moc_numpad.o
+debug/moc_numpadbuttons.o
+debug/moc_pankki.o
