@@ -1,8 +1,11 @@
-QT       += core gui
+QT += core gui
+QT += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
+TARGET = Numpad
+TEMPLATE = app
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -10,13 +13,25 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    nosto.cpp \
+    numpad.cpp \
+    tilisiirto.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    nosto.h \
+    numpad.h \
+    tilisiirto.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    nosto.ui \
+    numpad.ui \
+    tilisiirto.ui
+
+QMAKE_CXXFLAGS += -std=gnu++14 #numpadia varten
+DEFINES += MY_DEBUG
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
