@@ -13,7 +13,7 @@ const bank = {
         [postData.id1, postData.id2, postData.summa],
         callback);
     },
-    debit_nosto: function(postData, callback){ //rahan nosto
+    debit_nosto: function(postData, callback){ //Nosta rahaa -toiminto
         return db.query('call debit_nosto(?,?)',
         [postData.id, postData.summa],
         callback);

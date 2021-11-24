@@ -7,6 +7,9 @@ Tilisiirto::Tilisiirto(QWidget *parent) :
     ui(new Ui::Tilisiirto)
 {
     ui->setupUi(this);
+
+    connect(this, SIGNAL(btnPainettu()),
+            this, SLOT(btnclicked()));
 }
 
 Tilisiirto::~Tilisiirto()
@@ -14,8 +17,14 @@ Tilisiirto::~Tilisiirto()
     delete ui;
 }
 
+void Tilisiirto::btnclicked(){
+        qDebug() << "button clicked";
+  //  objectTimer->quit();
+}
+
 void Tilisiirto::on_btnDebit_clicked()
 {
+    emit btnPainettu();
     QJsonObject json; //luodaan JSON objekti ja lisätään data
     json.insert("id1",ui->leDebitMaksaja->text());
     json.insert("id2",ui->leDebitSaaja->text());
@@ -52,7 +61,7 @@ void Tilisiirto::debitSlot(QNetworkReply *reply)
 }
 void Tilisiirto::on_btnCredit_clicked()
 {
-
+    emit btnPainettu();
 }
 
 void Tilisiirto::creditSlot(QNetworkReply *reply)

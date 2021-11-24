@@ -4,6 +4,7 @@
 #include "tilisiirto.h"
 #include "nosto.h"
 #include "numpad.h"
+#include "valikko.h"
 
 #include <QMainWindow>
 #include <QtNetwork>
@@ -30,7 +31,17 @@ private slots:
 */
     void loginSlot (QNetworkReply *reply);
     void on_btnLogin_clicked();
-    void callingNumpadSLOT();
+
+    void openNumpadUi();
+
+public slots:
+    void openNostaRahaaUi();
+    void NostaRahaaButtonClicked();
+    void closeNostaRahaaUi();
+
+    void openTilisiirtoUi();
+    void TilisiirtoButtonClicked();
+    void closeTilisiirtoUi();
 
 private:
     Ui::MainWindow *ui;
@@ -42,5 +53,7 @@ private:
     Tilisiirto *objTilisiirto;
     Nosto *objNosto;
     Numpad *objNumpad;
+    valikko *objValikko;
+//  EventFilter *filtr;
 };
 #endif // MAINWINDOW_H

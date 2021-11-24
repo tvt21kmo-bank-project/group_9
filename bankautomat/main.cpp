@@ -18,12 +18,6 @@ int main(int argc, char *argv[])
     */
 
     MainWindow w;
-    w.show();
+    w.show(); //show main form
     return a.exec();
-
-    /*
-    Mainwindow w;
-    w.setWindowState(Qt::WindowFullScreen);
-    w.show();
-    */
 }

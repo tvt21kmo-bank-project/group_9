@@ -6,25 +6,31 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    objTilisiirto=new Tilisiirto;
-    objNosto=new Nosto;
-    objNumpad=new Numpad;
+    objTilisiirto = new Tilisiirto;
+    objNosto = new Nosto;
+    objNumpad = new Numpad;
+    objValikko = new valikko;
 
+    connect(objNosto, SIGNAL(callNumpadSLOT()),
+            this, SLOT(openNumpadUi()));
+    connect(objValikko, SIGNAL(openTilisiirto()),
+            this, SLOT(openTilisiirtoUi()));
+    connect(objValikko, SIGNAL(openNostaRahaa()),
+            this, SLOT(openNostaRahaaUi()));
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-    ui=nullptr;
-
+    ui = nullptr;
     delete objTilisiirto;
-    objTilisiirto=nullptr;
-
+    objTilisiirto = nullptr;
     delete objNosto;
-    objNosto=nullptr;
-
+    objNosto = nullptr;
     delete objNumpad;
-    objNumpad=nullptr;
+    objNumpad = nullptr;
+    delete objValikko;
+    objValikko = nullptr;
 }
 
 void MainWindow::on_btnLogin_clicked()
@@ -44,25 +50,53 @@ void MainWindow::on_btnLogin_clicked()
     this, SLOT(loginSlot(QNetworkReply*)));
     reply = loginManager->post(request, QJsonDocument(json).toJson());
 }
+
 void MainWindow::loginSlot(QNetworkReply *reply)
 {
     QByteArray response_data=reply->readAll();
     qDebug()<<response_data;
     if(response_data=="true"){
         qDebug()<<"Oikea tunnus ...avaa form";
-        objTilisiirto->show();
-        objNosto->show();
-
+        objValikko->show();
     }
     else {
         ui->lineEditPassword->setText("");
         ui->lineEditUsername->setText("");
         qDebug()<<"tunnus ja salasana ei täsmää";
-
     }
 }
 
-void MainWindow::callingNumpadSLOT()
+void MainWindow::openTilisiirtoUi()
+{
+    objTilisiirto->show();
+}
+
+void MainWindow::TilisiirtoButtonClicked()
+{
+
+}
+
+void MainWindow::closeTilisiirtoUi()
+{
+    objTilisiirto->hide();
+}
+
+void MainWindow::openNostaRahaaUi()
+{
+    objNosto->show();
+}
+
+void MainWindow::NostaRahaaButtonClicked()
+{
+    /*custom -summa, ei vielä toteutettu*/
+}
+
+void MainWindow::closeNostaRahaaUi()
+{
+    objNosto->hide();
+}
+
+void MainWindow::openNumpadUi()
 {
     objNumpad->show();
 }
