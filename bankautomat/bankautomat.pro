@@ -16,19 +16,22 @@ SOURCES += \
     mainwindow.cpp \
     nosto.cpp \
     numpad.cpp \
-    tilisiirto.cpp
+    tilisiirto.cpp \
+    valikko.cpp
 
 HEADERS += \
     mainwindow.h \
     nosto.h \
     numpad.h \
-    tilisiirto.h
+    tilisiirto.h \
+    valikko.h
 
 FORMS += \
     mainwindow.ui \
     nosto.ui \
     numpad.ui \
-    tilisiirto.ui
+    tilisiirto.ui \
+    valikko.ui
 
 QMAKE_CXXFLAGS += -std=gnu++14 #numpadia varten
 DEFINES += MY_DEBUG

@@ -22,15 +22,19 @@ private slots:
     void on_btnDebit_clicked();
     void on_btnCredit_clicked();
 
+    void btnclicked();
+
     void creditSlot(QNetworkReply *reply);
     void debitSlot(QNetworkReply *reply);
+
+signals:
+    void btnPainettu();
 
 private:
     Ui::Tilisiirto *ui;
     QNetworkAccessManager *creditManager;
     QNetworkAccessManager *debitManager;
     QNetworkReply *reply;
-
 };
 
 #endif // TILISIIRTO_H

@@ -16,7 +16,16 @@ Numpad::Numpad(QWidget *parent)
     ui->setupUi(this);
     resizeKey(ui->btnNostaSumma, QSize(100,100));
     resizeKey(ui->btnPeruuta, QSize(100,100));
-    //resize(334, 618);
+    resizeKey(ui->btn0, QSize(100,100));
+    resizeKey(ui->btn1, QSize(100,100));
+    resizeKey(ui->btn2, QSize(100,100));
+    resizeKey(ui->btn3, QSize(100,100));
+    resizeKey(ui->btn4, QSize(100,100));
+    resizeKey(ui->btn5, QSize(100,100));
+    resizeKey(ui->btn6, QSize(100,100));
+    resizeKey(ui->btn7, QSize(100,100));
+    resizeKey(ui->btn8, QSize(100,100));
+    resizeKey(ui->btn9, QSize(100,100));
     connectKeys();
 }
 
@@ -28,7 +37,7 @@ Numpad::~Numpad()
 #if defined (MY_DEBUG)
 void Numpad::resizeEvent(QResizeEvent *event)
 {
-    qDebug() << event->size();
+  //  qDebug() << event->size();
     QDialog::resizeEvent(event);
 }
 #endif

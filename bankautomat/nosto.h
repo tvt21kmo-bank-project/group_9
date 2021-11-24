@@ -5,6 +5,7 @@
 #include <QtNetwork>
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
+#include <QTimer>
 
 namespace Ui {
 class Nosto;
@@ -17,6 +18,8 @@ class Nosto : public QDialog
 public:
     explicit Nosto(QWidget *parent = nullptr);
     ~Nosto();
+
+//    QTimer timer;
 
 private slots:
     void on_btnNostoAlkuun_clicked();
@@ -34,13 +37,16 @@ private slots:
 
 signals:
     void callNumpadSLOT();
+    void NostoPainettu();
 
 private:
     Ui::Nosto *ui;
     QNetworkAccessManager *NostoManager;
     QNetworkReply *reply;
 
+//    bool eventFilter(QObject*, QEvent*);
 
+    int timerInterval = 5000;
 };
 
 #endif // NOSTO_H
