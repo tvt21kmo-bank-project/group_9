@@ -1,5 +1,5 @@
 const mysql = require('mysql');
-
-const connection = mysql.createPool(process.env.MYSQL);
-
+const dotenv = require('dotenv');
+dotenv.config();
+const connection = mysql.createPool(process.env.mysql);
 module.exports = connection;

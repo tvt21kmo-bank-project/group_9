@@ -1,7 +1,3 @@
-/* NÄMÄ VOI POISTAA KUN EI ENÄÄ MALLIA TARVI OTTAA
-
-
-
 const db = require('../database');
 
 const borrower = {
@@ -30,5 +26,3 @@ const borrower = {
   }
 };
 module.exports = borrower;
-
-*/

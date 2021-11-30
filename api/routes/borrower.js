@@ -46,7 +46,6 @@ function(request, response) {
     }
   });
 });
-/*
 
 router.put('/:id', 
 function(request, response) {
@@ -61,4 +60,3 @@ function(request, response) {
 
 module.exports = router;
 
-*/
