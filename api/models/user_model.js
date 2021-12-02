@@ -1,7 +1,4 @@
-/* voi poistaa kun ei enää malliksi tarvitse
-
 const db = require('../database');
-const bcrypt = require('bcryptjs');
 
 const saltRounds=10;
 const user={
@@ -30,5 +27,3 @@ const user={
 }
           
 module.exports = user;
-
-/*
