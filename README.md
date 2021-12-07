@@ -13,7 +13,7 @@ Ja lisäksi kansioon on luotava <b>.env</b> tiedosto, jonka sisältö on
 authUser='newAdmin'
 authPass='newPass'
 
-MYSQL = "mysql://netuser:netpass@localhost:3306/netdb"
+MYSQL = 'mysql://pankki:pankki123@localhost:3306/bank_db'
 </pre>
 ## bank-osan analyysi
 
