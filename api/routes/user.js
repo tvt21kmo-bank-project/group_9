@@ -1,3 +1,4 @@
+
 const express = require('express');
 const router = express.Router();
 const user = require('../models/user_model');
@@ -9,9 +10,7 @@ router.get('/:id?',
       if (err) {
         response.json(err);
       } else {
-        //response.json(dbResult);
-        //response.json(dbResult[0].username);
-        response.send(dbResult[0].username);
+          response.send(dbResult[0].username);
       }
     });
   } else {
