@@ -8,6 +8,7 @@ var usersRouter = require('./routes/users');
 var userRouter = require('./routes/user');
 var borrowerRouter = require('./routes/borrower');
 var saldoRouter = require('./routes/saldo');
+var bankRouter = require('./routes/bank');
 
 var app = express();
 
@@ -21,5 +22,6 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/user', userRouter);
 app.use('/borrower', borrowerRouter);
-app.use('/saldo',saldoRouter);
+app.use('/saldo', saldoRouter);
+app.use('/bank', bankRouter);
 module.exports = app;
