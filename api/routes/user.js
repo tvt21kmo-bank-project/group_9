@@ -10,10 +10,7 @@ router.get('/:id?', //kaikkien käyttäjien hakeminen
       if (err) {
         response.json(err);
       } else {
-        response.send(dbResult[0].username);
-        //response.json(dbResult);
-        //response.json(dbResult[0].username);
-        //response.send(dbResult[0].username);
+        response.json(dbResult);
       }
     });
   } else {

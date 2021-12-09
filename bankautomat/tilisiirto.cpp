@@ -29,7 +29,7 @@ void Tilisiirto::on_btnDebit_clicked()
     json.insert("id1",ui->leDebitMaksaja->text());
     json.insert("id2",ui->leDebitSaaja->text());
     json.insert("summa",ui->leDebitSumma->text());
-    QString site_url="http://localhost:3000/bank/debit_transfer";
+    QString site_url="http://localhost:3000/bank/debit_tilisiirto";
     QString credentials="newAdmin:newPass";
     QNetworkRequest request((site_url));
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
@@ -37,7 +37,7 @@ void Tilisiirto::on_btnDebit_clicked()
     QString headerData = "Basic " + data;
     request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
     debitManager = new QNetworkAccessManager(this);
-    connect(debitManager, SIGNAL(finished (QNetworkReply*)),
+    connect(debitManager, SIGNAL(finished(QNetworkReply*)),
     this, SLOT(debitSlot(QNetworkReply*)));
     reply = debitManager->post(request, QJsonDocument(json).toJson());
 }

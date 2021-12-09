@@ -19,7 +19,9 @@ public:
     explicit Nosto(QWidget *parent = nullptr);
     ~Nosto();
 
-//    QTimer timer;
+    QTimer timer;
+public slots:
+    void custom_summan_syotto(const QString &text);
 
 private slots:
     void on_btnNostoAlkuun_clicked();
@@ -32,11 +34,9 @@ private slots:
     void on_btnNostoMuuSumma_clicked();
 
     void infoNostoSlot(QNetworkReply *reply);
-
     void onTimeout();
 
 signals:
-    void callNumpadSLOT();
     void NostoPainettu();
 
 private:

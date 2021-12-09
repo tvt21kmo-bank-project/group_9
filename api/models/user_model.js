@@ -21,7 +21,7 @@ const user={
   },
   update: function(id, user, callback) {
     bcrypt.hash(user.password, saltRounds, function(err, hash) {
-      return db.query('update kayttaja set username=?, password=? where idAsiakas=?',
+      return db.query('update kayttaja set Kayttajatunnus=?, Salasana=? where idAsiakas=?',
       [user.username, hash, id], callback);
     });
   }
