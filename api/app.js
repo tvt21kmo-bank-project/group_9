@@ -9,6 +9,7 @@ var userRouter = require('./routes/user');
 var borrowerRouter = require('./routes/borrower');
 var saldoRouter = require('./routes/saldo');
 var bankRouter = require('./routes/bank');
+var loginRouter = require('./routes/login');
 
 var app = express();
 
@@ -21,6 +22,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/login', loginRouter);
 app.use('/user', userRouter);
 app.use('/borrower', borrowerRouter);
 app.use('/saldo', saldoRouter);

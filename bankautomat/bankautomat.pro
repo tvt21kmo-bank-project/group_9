@@ -12,31 +12,33 @@ TEMPLATE = app
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    keypad.cpp \
     main.cpp \
     mainwindow.cpp \
     nosto.cpp \
-    numpad.cpp \
     tilisiirto.cpp \
     valikko.cpp
 
 HEADERS += \
+    keypad.h \
     mainwindow.h \
     nosto.h \
-    numpad.h \
     tilisiirto.h \
     valikko.h
 
 FORMS += \
+    keypad.ui \
     mainwindow.ui \
     nosto.ui \
-    numpad.ui \
     tilisiirto.ui \
     valikko.ui
 
 QMAKE_CXXFLAGS += -std=gnu++14 #numpadia varten
-DEFINES += MY_DEBUG
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+   resources.qrc
