@@ -1,4 +1,3 @@
-
 const express = require('express');
 const router = express.Router();
 const user = require('../models/user_model');
@@ -10,7 +9,10 @@ router.get('/:id?', //kaikkien käyttäjien hakeminen
       if (err) {
         response.json(err);
       } else {
-        response.json(dbResult);
+
+          //response.send(dbResult[0].username);
+          response.json(dbResult);
+
       }
     });
   } else {

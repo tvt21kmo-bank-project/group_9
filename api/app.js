@@ -11,10 +11,25 @@ var saldoRouter = require('./routes/saldo');
 var bankRouter = require('./routes/bank');
 var loginRouter = require('./routes/login');
 
+const dotenv = require('dotenv');
+dotenv.config();
+
 var app = express();
 
 app.use(helmet());
 app.use(cors());
+const basicAuth = require('express-basic-auth');
+app.use(basicAuth( { authorizer: myAuthorizer, authorizeAsync:true, } ))
+
+
+function myAuthorizer(username, password, cb){
+    if(username===process.env.authUser && password ===process.env.authPass){
+        return cb(null, true);
+    }
+    else{
+        return cb(null, false);
+    }
+}
 
 app.use(logger('dev'));
 app.use(express.json());
