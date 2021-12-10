@@ -2,15 +2,17 @@ const express = require('express');
 const router = express.Router();
 const user = require('../models/user_model');
 
-router.get('/:id?',
+router.get('/:id?', //kaikkien käyttäjien hakeminen
  function(request, response) {
   if (request.params.id) {
-    user.getById(request.params.id, function(err, dbResult) {
+    user.getById(request.params.id, function(err, dbResult) { //käyttäjän haku idAsiakas avulla
       if (err) {
         response.json(err);
       } else {
+
           //response.send(dbResult[0].username);
           response.json(dbResult);
+
       }
     });
   } else {
@@ -23,7 +25,7 @@ router.get('/:id?',
     });
   }
 });
-router.post('/', 
+router.post('/', //käyttäjän lisääminen
 function(request, response) {
   user.add(request.body, function(err, count) {
     if (err) {
@@ -34,7 +36,7 @@ function(request, response) {
   });
 });
 
-router.delete('/:id', 
+router.delete('/:id', //käyttäjän poistaminen
 function(request, response) {
   user.delete(request.params.id, function(err, count) {
     if (err) {
@@ -46,7 +48,7 @@ function(request, response) {
 });
 
 
-router.put('/:id', 
+router.put('/:id', //käyttäjän muokkaaminen
 function(request, response) {
   user.update(request.params.id, request.body, function(err, dbResult) {
     if (err) {

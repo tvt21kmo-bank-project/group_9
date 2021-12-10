@@ -14,7 +14,9 @@ router.post('/',
           }
           else{
             if (dbResult.length > 0) {
+
               bcrypt.compare(Salasana,dbResult[0].Salasana, function(err,compareResult) {
+
                 if(compareResult) {
                   console.log("success");
                   //response.send(true);

@@ -1,7 +1,10 @@
 #include "nosto.h"
 #include "ui_nosto.h"
-#include <QDebug>
-#include <QObject>
+#include "keypad.h"
+
+//#include <QDebug>
+//#include <QObject>
+#include <QRegExpValidator>
 
 Nosto::Nosto(QWidget *parent) :
     QDialog(parent),
@@ -9,6 +12,13 @@ Nosto::Nosto(QWidget *parent) :
 {
    // installEventFilter(this);
     ui->setupUi(this);
+
+    Keypad *keypad = new Keypad(this);
+    connect(keypad, SIGNAL(numpadiaPainettu(const QString&)),
+            this, SLOT(custom_summan_syotto(const QString&)));
+    ui->verticalLayout->addWidget(keypad);
+
+    ui->syota_muu_summa->setValidator(new QRegExpValidator(QRegExp("[0-9]*"), ui->syota_muu_summa));
 }
 
 Nosto::~Nosto()
@@ -48,13 +58,14 @@ bool Nosto::eventFilter(QObject *obj, QEvent *e)
 
 void Nosto::on_btnNostoAlkuun_clicked()
 {
+    ui->syota_muu_summa->setText("");
     this->close();
 }
 
 void Nosto::on_btnNosto20_clicked()
 {
     QJsonObject json; //luodaan JSON objekti ja lisätään data
-    json.insert("id","1");
+    json.insert("id","FI1111");
     json.insert("summa","20");
 
     QString site_url="http://localhost:3000/bank/debit_nosto";
@@ -66,7 +77,7 @@ void Nosto::on_btnNosto20_clicked()
     request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
 
     NostoManager = new QNetworkAccessManager(this);
-    connect(NostoManager, SIGNAL(finished (QNetworkReply*)),
+    connect(NostoManager, SIGNAL(finished(QNetworkReply*)),
     this, SLOT(infoNostoSlot(QNetworkReply*)));
     reply = NostoManager->post(request, QJsonDocument(json).toJson());
 }
@@ -75,7 +86,7 @@ void Nosto::on_btnNosto20_clicked()
 void Nosto::on_btnNosto40_clicked()
 {
     QJsonObject json; //luodaan JSON objekti ja lisätään data
-    json.insert("id","1");
+    json.insert("id","FI1111");
     json.insert("summa","40");
 
     QString site_url="http://localhost:3000/bank/debit_nosto";
@@ -87,7 +98,7 @@ void Nosto::on_btnNosto40_clicked()
     request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
 
     NostoManager = new QNetworkAccessManager(this);
-    connect(NostoManager, SIGNAL(finished (QNetworkReply*)),
+    connect(NostoManager, SIGNAL(finished(QNetworkReply*)),
     this, SLOT(infoNostoSlot(QNetworkReply*)));
     reply = NostoManager->post(request, QJsonDocument(json).toJson());
 }
@@ -96,7 +107,7 @@ void Nosto::on_btnNosto40_clicked()
 void Nosto::on_btnNosto60_clicked()
 {
     QJsonObject json; //luodaan JSON objekti ja lisätään data
-    json.insert("id","1");
+    json.insert("id","FI1111");
     json.insert("summa","60");
 
     QString site_url="http://localhost:3000/bank/debit_nosto";
@@ -108,7 +119,7 @@ void Nosto::on_btnNosto60_clicked()
     request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
 
     NostoManager = new QNetworkAccessManager(this);
-    connect(NostoManager, SIGNAL(finished (QNetworkReply*)),
+    connect(NostoManager, SIGNAL(finished(QNetworkReply*)),
     this, SLOT(infoNostoSlot(QNetworkReply*)));
     reply = NostoManager->post(request, QJsonDocument(json).toJson());
 }
@@ -117,7 +128,7 @@ void Nosto::on_btnNosto60_clicked()
 void Nosto::on_btnNosto100_clicked()
 {
     QJsonObject json; //luodaan JSON objekti ja lisätään data
-    json.insert("id","1");
+    json.insert("id","FI1111");
     json.insert("summa","100");
 
     QString site_url="http://localhost:3000/bank/debit_nosto";
@@ -129,7 +140,7 @@ void Nosto::on_btnNosto100_clicked()
     request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
 
     NostoManager = new QNetworkAccessManager(this);
-    connect(NostoManager, SIGNAL(finished (QNetworkReply*)),
+    connect(NostoManager, SIGNAL(finished(QNetworkReply*)),
     this, SLOT(infoNostoSlot(QNetworkReply*)));
     reply = NostoManager->post(request, QJsonDocument(json).toJson());
 }
@@ -138,7 +149,7 @@ void Nosto::on_btnNosto100_clicked()
 void Nosto::on_btnNosto250_clicked()
 {
     QJsonObject json; //luodaan JSON objekti ja lisätään data
-    json.insert("id","1");
+    json.insert("id","FI1111");
     json.insert("summa","250");
 
     QString site_url="http://localhost:3000/bank/debit_nosto";
@@ -150,7 +161,7 @@ void Nosto::on_btnNosto250_clicked()
     request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
 
     NostoManager = new QNetworkAccessManager(this);
-    connect(NostoManager, SIGNAL(finished (QNetworkReply*)),
+    connect(NostoManager, SIGNAL(finished(QNetworkReply*)),
     this, SLOT(infoNostoSlot(QNetworkReply*)));
     reply = NostoManager->post(request, QJsonDocument(json).toJson());
 }
@@ -159,7 +170,7 @@ void Nosto::on_btnNosto250_clicked()
 void Nosto::on_btnNosto500_clicked()
 {
     QJsonObject json; //luodaan JSON objekti ja lisätään data
-    json.insert("id","1");
+    json.insert("id","FI1111");
     json.insert("summa","500");
 
     QString site_url="http://localhost:3000/bank/debit_nosto";
@@ -171,7 +182,7 @@ void Nosto::on_btnNosto500_clicked()
     request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
 
     NostoManager = new QNetworkAccessManager(this);
-    connect(NostoManager, SIGNAL(finished (QNetworkReply*)),
+    connect(NostoManager, SIGNAL(finished(QNetworkReply*)),
     this, SLOT(infoNostoSlot(QNetworkReply*)));
     reply = NostoManager->post(request, QJsonDocument(json).toJson());
 }
@@ -179,24 +190,31 @@ void Nosto::on_btnNosto500_clicked()
 
 void Nosto::on_btnNostoMuuSumma_clicked()
 {
-    emit callNumpadSLOT();
-    /*
-    QJsonObject json; //luodaan JSON objekti ja lisätään data
-    json.insert("id","1");
-    json.insert("summa","20");
+    int muu_summa = ui->syota_muu_summa->text().toInt();
+    if(muu_summa %10 != 0 || muu_summa == 0) {
+        ui->infoNosto->setText("pitäisikö tässä ilmoittaa että esimerkiksi ei anneta summia jotka ei kymmenellä jaollisia? sillä tavalla tämä non nyt toteutettu");
+        QTimer::singleShot(5000, this, SLOT(onTimeout()));
+        ui->syota_muu_summa->setText("");
+    } else {
+        QJsonObject json; //luodaan JSON objekti ja lisätään data
+        json.insert("id","FI2222");
+        json.insert("summa", muu_summa);
 
-    QString site_url="http://localhost:3000/bank/debit_nosto";
-    QString credentials="newAdmin:newPass";
-    QNetworkRequest request((site_url));
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-    QByteArray data = credentials.toLocal8Bit().toBase64();
-    QString headerData = "Basic " + data;
-    request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
+        QString site_url="http://localhost:3000/bank/debit_nosto";
+        QString credentials="newAdmin:newPass";
+        QNetworkRequest request((site_url));
+        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+        QByteArray data = credentials.toLocal8Bit().toBase64();
+        QString headerData = "Basic " + data;
+        request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
 
-    NostoManager = new QNetworkAccessManager(this);
-    connect(NostoManager, SIGNAL(finished (QNetworkReply*)),
-    this, SLOT(infoNostoSlot(QNetworkReply*)));
-    reply = NostoManager->post(request, QJsonDocument(json).toJson());*/
+        NostoManager = new QNetworkAccessManager(this);
+        connect(NostoManager, SIGNAL(finished(QNetworkReply*)),
+                this, SLOT(infoNostoSlot(QNetworkReply*)));
+        reply = NostoManager->post(request, QJsonDocument(json).toJson());
+
+        ui->syota_muu_summa->setText("");
+    }
 }
 
 void Nosto::infoNostoSlot(QNetworkReply *reply)
@@ -212,7 +230,21 @@ void Nosto::infoNostoSlot(QNetworkReply *reply)
     }
 }
 
-void Nosto::onTimeout() //kun infoNostoSlotissa asetettu 4sec umpeutuu, teksti nollataan
+void Nosto::onTimeout() //infoNosto labelin tekstin nollaus
 {
     ui->infoNosto->setText("");
+}
+
+void Nosto::custom_summan_syotto(const QString &text)
+{
+    if(text == "poistu"){
+        ui->syota_muu_summa->setText("");
+        this->close();
+    } else if (text =="tyhjenna"){
+        ui->syota_muu_summa->setText("");
+    } else if (text == "enter"){
+        this->on_btnNostoMuuSumma_clicked();
+    } else {
+        ui->syota_muu_summa->insert(text);
+    }
 }
