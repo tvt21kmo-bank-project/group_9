@@ -49,7 +49,7 @@
     <string>Nosta rahaa</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="btnNaytaSaldo">
    <property name="enabled">
     <bool>false</bool>
    </property>
@@ -67,7 +67,7 @@
     </font>
    </property>
    <property name="text">
-    <string>yms</string>
+    <string>Näytä Saldo</string>
    </property>
   </widget>
  </widget>

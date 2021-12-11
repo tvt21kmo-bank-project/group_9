@@ -17,21 +17,26 @@ SOURCES += \
     nosto.cpp \
     numpad.cpp \
     tilisiirto.cpp \
-    valikko.cpp
+    valikko.cpp \
+    saldo.cpp \
+    saldo.cpp
 
 HEADERS += \
     mainwindow.h \
     nosto.h \
     numpad.h \
     tilisiirto.h \
-    valikko.h
+    valikko.h \
+    saldo.h \
+    saldo.h
 
 FORMS += \
     mainwindow.ui \
     nosto.ui \
     numpad.ui \
     tilisiirto.ui \
-    valikko.ui
+    valikko.ui \
+    saldo.ui
 
 QMAKE_CXXFLAGS += -std=gnu++14 #numpadia varten
 DEFINES += MY_DEBUG
@@ -40,3 +45,5 @@ DEFINES += MY_DEBUG
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES +=

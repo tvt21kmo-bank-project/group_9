@@ -18,6 +18,7 @@ public:
 private slots:
     void on_btnTilisiirto_clicked();
     void on_btnNostaRahaa_clicked();
+    void on_btnNaytasaldo_clicked();
 
 private:
     Ui::valikko *ui;

@@ -24,3 +24,5 @@ void valikko::on_btnNostaRahaa_clicked()
     emit openNostaRahaa();
 }
 
+void valikko::on
+

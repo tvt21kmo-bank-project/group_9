@@ -6,10 +6,35 @@
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
 
-class saldo
+namespace Ui {
+class saldo;
+}
+
+class saldo : public QDialog
 {
+    Q_OBJECT
+
 public:
-    saldo();
+    explicit saldo(QWidget *parent = nullptr);
+    ~saldo();
+
+private slots:
+    void on_btnSaldo_clicked();
+
+    void btnclicked();
+
+    void creditSlot(QNetworkReply *reply);
+    void debitSlot(QNetworkReply *reply);
+
+signals:
+    void btnPainettu();
+
+private:
+    Ui::saldo *ui;
+    QNetworkAccessManager *SaldoManager;
+    QNetworkReply *reply;
+
+    int timerInterval = 5000;
 };
 
 #endif // SALDO_H

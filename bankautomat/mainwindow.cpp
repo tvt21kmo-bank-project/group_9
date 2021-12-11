@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     objNosto = new Nosto;
     objNumpad = new Numpad;
     objValikko = new valikko;
+    objSaldo = new saldo;
 
     connect(objNosto, SIGNAL(callNumpadSLOT()),
             this, SLOT(openNumpadUi()));
@@ -31,6 +32,8 @@ MainWindow::~MainWindow()
     objNumpad = nullptr;
     delete objValikko;
     objValikko = nullptr;
+    delete objSaldo;
+    objSaldo = nullptr;
 }
 
 void MainWindow::on_btnLogin_clicked()
@@ -99,6 +102,16 @@ void MainWindow::closeNostaRahaaUi()
 void MainWindow::openNumpadUi()
 {
     objNumpad->show();
+}
+
+void MainWindow::openSaldoUi()
+{
+    objSaldo->show();
+}
+
+void MainWindow::closeSaldoUi()
+{
+    objSaldo->close();
 }
 
 //_______________________ alla olevan voi poistaa __________________________________
