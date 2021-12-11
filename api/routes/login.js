@@ -5,19 +5,22 @@ const login = require('../models/login_model');
 
 router.post('/', 
   function(request, response) {
-    if(request.body.username && request.body.password){
-      const username = request.body.username;
-      const password = request.body.password;
-        login.checkPassword(username, function(dbError, dbResult) {
+    if(request.body.Kayttajatunnus && request.body.Salasana){
+      const Kayttajatunnus = request.body.Kayttajatunnus;
+      const Salasana = request.body.Salasana;
+        login.checkPassword(Kayttajatunnus, function(dbError, dbResult) {
           if(dbError){
             response.json(dbError);
           }
           else{
             if (dbResult.length > 0) {
-              bcrypt.compare(password,dbResult[0].password, function(err,compareResult) {
+
+              bcrypt.compare(Salasana,dbResult[0].Salasana, function(err,compareResult) {
+
                 if(compareResult) {
-                  console.log("succes");
-                  response.send(true);
+                  console.log("success");
+                  //response.send(true);
+                  response.send(dbResult);
                 }
                 else {
                     console.log("wrong password");
@@ -35,7 +38,7 @@ router.post('/',
         );
       }
     else{
-      console.log("username or password missing");
+      console.log("Kayttajatunnus or Salasana missing");
       response.send(false);
     }
   }

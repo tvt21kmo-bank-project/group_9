@@ -4,12 +4,12 @@ const db = require('../database');
 const bank = {
 
     debit: function(postData, callback){
-        return db.query('call debit_transfer(?,?,?)',
+        return db.query('call debit_tilisiirto(?,?,?)',
         [postData.id1, postData.id2, postData.summa],
         callback);
     },
     credit: function(postData, callback){
-        return db.query('call credit_transfer(?,?,?)',
+        return db.query('call credit_tilisiirto(?,?,?)',
         [postData.id1, postData.id2, postData.summa],
         callback);
     },

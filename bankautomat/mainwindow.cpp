@@ -8,12 +8,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     objTilisiirto = new Tilisiirto;
     objNosto = new Nosto;
-    objNumpad = new Numpad;
     objValikko = new valikko;
     objSaldo = new saldo;
 
-    connect(objNosto, SIGNAL(callNumpadSLOT()),
-            this, SLOT(openNumpadUi()));
     connect(objValikko, SIGNAL(openTilisiirto()),
             this, SLOT(openTilisiirtoUi()));
     connect(objValikko, SIGNAL(openNostaRahaa()),
@@ -28,8 +25,6 @@ MainWindow::~MainWindow()
     objTilisiirto = nullptr;
     delete objNosto;
     objNosto = nullptr;
-    delete objNumpad;
-    objNumpad = nullptr;
     delete objValikko;
     objValikko = nullptr;
     delete objSaldo;
@@ -98,6 +93,7 @@ void MainWindow::closeNostaRahaaUi()
 {
     objNosto->hide();
 }
+<<<<<<< HEAD
 
 void MainWindow::openNumpadUi()
 {
@@ -174,3 +170,5 @@ void MainWindow::getOneBookSlot(QNetworkReply *reply)
 }
 
 */
+=======
+>>>>>>> 441faf4adf4ee856991dd3ed7e976a4c8b27a134

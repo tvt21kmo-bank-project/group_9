@@ -3,7 +3,6 @@
 
 #include "tilisiirto.h"
 #include "nosto.h"
-#include "numpad.h"
 #include "valikko.h"
 #include "saldo.h"
 
@@ -25,15 +24,8 @@ public:
     ~MainWindow();
 
 private slots:
-/*  void on_btnShowBooks_clicked();
-    void getBookSlot (QNetworkReply *reply);
-    void getOneBookSlot (QNetworkReply *reply);
-    void on_btnShowOneBook_clicked();
-*/
     void loginSlot (QNetworkReply *reply);
     void on_btnLogin_clicked();
-
-    void openNumpadUi();
 
 public slots:
     void openNostaRahaaUi();
@@ -55,7 +47,6 @@ private:
 
     Tilisiirto *objTilisiirto;
     Nosto *objNosto;
-    Numpad *objNumpad;
     valikko *objValikko;
     saldo *objSaldo;
 //  EventFilter *filtr;
