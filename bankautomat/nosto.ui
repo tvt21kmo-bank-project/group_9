@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>668</width>
-    <height>669</height>
+    <width>687</width>
+    <height>871</height>
    </rect>
   </property>
   <property name="font">
@@ -25,10 +25,10 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>90</y>
+     <x>30</x>
+     <y>180</y>
      <width>41</width>
-     <height>41</height>
+     <height>51</height>
     </rect>
    </property>
    <property name="font">
@@ -59,9 +59,9 @@
   <widget class="QPushButton" name="btnNosto100">
    <property name="geometry">
     <rect>
-     <x>610</x>
-     <y>90</y>
-     <width>51</width>
+     <x>690</x>
+     <y>180</y>
+     <width>41</width>
      <height>51</height>
     </rect>
    </property>
@@ -83,10 +83,10 @@
   <widget class="QPushButton" name="btnNosto250">
    <property name="geometry">
     <rect>
-     <x>600</x>
-     <y>180</y>
+     <x>680</x>
+     <y>260</y>
      <width>51</width>
-     <height>41</height>
+     <height>51</height>
     </rect>
    </property>
    <property name="font">
@@ -107,9 +107,9 @@
   <widget class="QPushButton" name="btnNosto500">
    <property name="geometry">
     <rect>
-     <x>600</x>
-     <y>280</y>
-     <width>61</width>
+     <x>690</x>
+     <y>350</y>
+     <width>41</width>
      <height>41</height>
     </rect>
    </property>
@@ -134,10 +134,10 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>380</y>
-     <width>61</width>
-     <height>41</height>
+     <x>680</x>
+     <y>430</y>
+     <width>51</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="font">
@@ -158,10 +158,10 @@
   <widget class="QPushButton" name="btnNosto40">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>180</y>
-     <width>61</width>
-     <height>41</height>
+     <x>20</x>
+     <y>260</y>
+     <width>51</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="font">
@@ -182,9 +182,9 @@
   <widget class="QPushButton" name="btnNosto60">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>280</y>
-     <width>61</width>
+     <x>20</x>
+     <y>350</y>
+     <width>51</width>
      <height>41</height>
     </rect>
    </property>
@@ -206,10 +206,10 @@
   <widget class="QPushButton" name="btnNostoAlkuun">
    <property name="geometry">
     <rect>
-     <x>600</x>
-     <y>380</y>
+     <x>20</x>
+     <y>430</y>
      <width>51</width>
-     <height>41</height>
+     <height>51</height>
     </rect>
    </property>
    <property name="font">
@@ -230,21 +230,21 @@
   <widget class="QLabel" name="infoNosto">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>150</y>
-     <width>211</width>
-     <height>171</height>
+     <x>200</x>
+     <y>170</y>
+     <width>271</width>
+     <height>201</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>10</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: white;</string>
+    <string notr="true">color: yellow;</string>
    </property>
    <property name="text">
     <string/>
@@ -258,15 +258,27 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>671</width>
-     <height>671</height>
+     <width>687</width>
+     <height>871</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
-     <width>671</width>
-     <height>671</height>
+     <width>687</width>
+     <height>871</height>
     </size>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: grey;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
    </property>
    <property name="text">
     <string/>
@@ -288,8 +300,8 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>90</y>
-     <width>101</width>
+     <y>170</y>
+     <width>91</width>
      <height>41</height>
     </rect>
    </property>
@@ -304,15 +316,15 @@
     <string notr="true">color: white;</string>
    </property>
    <property name="text">
-    <string>20€</string>
+    <string>20 €</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>180</y>
-     <width>101</width>
+     <y>250</y>
+     <width>91</width>
      <height>41</height>
     </rect>
    </property>
@@ -327,15 +339,15 @@
     <string notr="true">color: white;</string>
    </property>
    <property name="text">
-    <string>40€</string>
+    <string>40 €</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>280</y>
-     <width>101</width>
+     <y>320</y>
+     <width>91</width>
      <height>41</height>
     </rect>
    </property>
@@ -350,15 +362,15 @@
     <string notr="true">color: white;</string>
    </property>
    <property name="text">
-    <string>60€</string>
+    <string>60 €</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
      <x>490</x>
-     <y>90</y>
-     <width>101</width>
+     <y>170</y>
+     <width>121</width>
      <height>41</height>
     </rect>
    </property>
@@ -373,15 +385,15 @@
     <string notr="true">color: white;</string>
    </property>
    <property name="text">
-    <string>100€</string>
+    <string>100 €</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
      <x>490</x>
-     <y>180</y>
-     <width>101</width>
+     <y>250</y>
+     <width>121</width>
      <height>41</height>
     </rect>
    </property>
@@ -396,15 +408,15 @@
     <string notr="true">color: white;</string>
    </property>
    <property name="text">
-    <string>250€</string>
+    <string>250 €</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
      <x>490</x>
-     <y>280</y>
-     <width>101</width>
+     <y>320</y>
+     <width>121</width>
      <height>41</height>
     </rect>
    </property>
@@ -419,15 +431,15 @@
     <string notr="true">color: white;</string>
    </property>
    <property name="text">
-    <string>500€</string>
+    <string>500 €</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_7">
    <property name="geometry">
     <rect>
-     <x>440</x>
-     <y>380</y>
-     <width>161</width>
+     <x>90</x>
+     <y>400</y>
+     <width>171</width>
      <height>41</height>
     </rect>
    </property>
@@ -439,19 +451,19 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: red;</string>
+    <string notr="true">color: white;</string>
    </property>
    <property name="text">
-    <string>POISTU</string>
+    <string>ALKUUN</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="syota_muu_summa">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>370</y>
+     <x>410</x>
+     <y>390</y>
      <width>191</width>
-     <height>61</height>
+     <height>51</height>
     </rect>
    </property>
    <property name="font">
@@ -478,12 +490,31 @@
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>480</y>
-     <width>251</width>
+     <y>490</y>
+     <width>261</width>
      <height>171</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout"/>
+  </widget>
+  <widget class="QLabel" name="note_animation">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>750</y>
+     <width>281</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 0px;</string>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
   </widget>
   <zorder>background_image</zorder>
   <zorder>btnNosto20</zorder>
@@ -504,6 +535,7 @@
   <zorder>label_7</zorder>
   <zorder>syota_muu_summa</zorder>
   <zorder>verticalLayoutWidget</zorder>
+  <zorder>note_animation</zorder>
  </widget>
  <resources>
   <include location="resources.qrc"/>

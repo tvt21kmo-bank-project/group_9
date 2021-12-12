@@ -4,6 +4,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const helmet = require('helmet');
 const cors = require('cors');
+const dotenv = require('dotenv');
+
+dotenv.config();
+var app = express();
 
 var userRouter = require('./routes/user');
 var borrowerRouter = require('./routes/borrower');
@@ -11,16 +15,10 @@ var saldoRouter = require('./routes/saldo');
 var bankRouter = require('./routes/bank');
 var loginRouter = require('./routes/login');
 
-const dotenv = require('dotenv');
-dotenv.config();
-
-var app = express();
-
 app.use(helmet());
 app.use(cors());
 const basicAuth = require('express-basic-auth');
 app.use(basicAuth( { authorizer: myAuthorizer, authorizeAsync:true, } ))
-
 
 function myAuthorizer(username, password, cb){
     if(username===process.env.authUser && password ===process.env.authPass){

@@ -17,8 +17,10 @@ Nosto::Nosto(QWidget *parent) :
     connect(keypad, SIGNAL(numpadiaPainettu(const QString&)),
             this, SLOT(custom_summan_syotto(const QString&)));
     ui->verticalLayout->addWidget(keypad);
-
     ui->syota_muu_summa->setValidator(new QRegExpValidator(QRegExp("[0-9]*"), ui->syota_muu_summa));
+
+    connect(this, SIGNAL(animation_type_changed(const QMovie&)),
+            this, SLOT(handle_animation(const QMovie&)));
 }
 
 Nosto::~Nosto()
@@ -80,8 +82,13 @@ void Nosto::on_btnNosto20_clicked()
     connect(NostoManager, SIGNAL(finished(QNetworkReply*)),
     this, SLOT(infoNostoSlot(QNetworkReply*)));
     reply = NostoManager->post(request, QJsonDocument(json).toJson());
-}
 
+    QTimer::singleShot(1000, this, SLOT(nosta_20()));
+
+    //QTimer::singleShot(1000, this,
+    //SLOT(handle_animation("C:/Users/Antti/OneDrive/Kuvat/notes/animations/note20.gif")));
+   // emit animation_type_changed("C:/Users/Antti/OneDrive/Kuvat/notes/animations/note20.gif");
+}
 
 void Nosto::on_btnNosto40_clicked()
 {
@@ -247,4 +254,65 @@ void Nosto::custom_summan_syotto(const QString &text)
     } else {
         ui->syota_muu_summa->insert(text);
     }
+}
+
+/*
+void Nosto::handle_animation(&animation_type){
+    QMovie *animation = new QMovie(&animation_type);
+    ui->note_animation->setMovie(animation);
+    animation->start();
+
+    connect(animation, &QMovie::frameChanged, this, [animation]()
+    {
+        if(animation->currentFrameNumber() == (animation->frameCount() - 1))
+        {
+            animation->stop();
+
+        // Alla lähetetään "finished()" signaali kun animaatio pysäytetty, niin että
+        // viimeinen frame voidaan jättää päälle hetkeksi minkä jälkeen animaatiokuvan poisto
+            if(animation->state() == QMovie::NotRunning)
+            {
+                emit animation->finished();
+            }
+        }
+    });
+
+    //lähetä signaali slottiin, joka päivittää animaatioruudun kun "finished()" vastaanotettu
+    connect(animation, &QMovie::finished, this, [&]()
+    {
+        QTimer::singleShot(2000, this, SLOT(clear_animation_screen()));
+    });
+}
+*/
+
+void Nosto::nosta_20(){
+    QMovie *note20animation = new QMovie("C:/apps/group_9/bankautomat/note20.gif");
+    ui->note_animation->setMovie(note20animation);
+    note20animation->start();
+
+    connect(note20animation, &QMovie::frameChanged, this, [note20animation]()
+    {
+        if(note20animation->currentFrameNumber() == (note20animation->frameCount() - 1))
+        {
+            note20animation->stop();
+
+        // Alla lähetetään "finished()" signaali kun animaatio pysäytetty, niin että
+        // viimeinen frame voidaan jättää päälle hetkeksi minkä jälkeen animaatiokuvan poisto
+            if (note20animation->state() == QMovie::NotRunning)
+            {
+                emit note20animation->finished();
+            }
+        }
+    });
+
+    //lähetä signaali slottiin, joka päivittää animaatioruudun kun "finished()" vastaanotettu
+    connect(note20animation, &QMovie::finished, this, [&]()
+    {
+        QTimer::singleShot(2000, this, SLOT(clear_animation_screen()));
+    });
+}
+
+void Nosto::clear_animation_screen()
+{
+    ui->note_animation->clear();
 }
