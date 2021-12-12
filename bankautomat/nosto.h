@@ -6,6 +6,7 @@
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
 #include <QTimer>
+#include <QMovie>
 
 namespace Ui {
 class Nosto;
@@ -36,8 +37,14 @@ private slots:
     void infoNostoSlot(QNetworkReply *reply);
     void onTimeout();
 
+    void nosta_20();
+  //  void handle_animation(char animation_type);
+    void clear_animation_screen();
+
+
 signals:
     void NostoPainettu();
+   // void animation_type_changed(char animation_type);
 
 private:
     Ui::Nosto *ui;
