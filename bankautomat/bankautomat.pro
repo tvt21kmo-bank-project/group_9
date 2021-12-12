@@ -18,8 +18,6 @@ SOURCES += \
     nosto.cpp \
     tilisiirto.cpp \
     valikko.cpp \
-    saldo.cpp \
-    saldo.cpp
 
 HEADERS += \
     keypad.h \
@@ -27,8 +25,6 @@ HEADERS += \
     nosto.h \
     tilisiirto.h \
     valikko.h \
-    saldo.h \
-    saldo.h
 
 FORMS += \
     keypad.ui \
@@ -36,16 +32,11 @@ FORMS += \
     nosto.ui \
     tilisiirto.ui \
     valikko.ui \
-    saldo.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-<<<<<<< HEAD
-DISTFILES +=
-=======
 RESOURCES += \
    resources.qrc
->>>>>>> 441faf4adf4ee856991dd3ed7e976a4c8b27a134

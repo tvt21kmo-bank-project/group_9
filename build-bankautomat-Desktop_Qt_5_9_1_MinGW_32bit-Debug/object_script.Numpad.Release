@@ -1,0 +1,14 @@
+INPUT(
+./release\keypad.o
+./release\main.o
+./release\mainwindow.o
+./release\nosto.o
+./release\tilisiirto.o
+./release\valikko.o
+./release\qrc_resources.o
+./release\moc_keypad.o
+./release\moc_mainwindow.o
+./release\moc_nosto.o
+./release\moc_tilisiirto.o
+./release\moc_valikko.o
+);
