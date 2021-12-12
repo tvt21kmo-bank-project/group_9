@@ -47,8 +47,7 @@ function(request, response) {
   });
 });
 
-
-router.put('/:id', //käyttäjän muokkaaminen
+router.put('/:id', //käyttäjän tunnusten muokkaaminen
 function(request, response) {
   user.update(request.params.id, request.body, function(err, dbResult) {
     if (err) {
