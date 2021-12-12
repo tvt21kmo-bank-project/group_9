@@ -33,8 +33,6 @@ FORMS += \
     tilisiirto.ui \
     valikko.ui
 
-QMAKE_CXXFLAGS += -std=gnu++14 #numpadia varten
-
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
