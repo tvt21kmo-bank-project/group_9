@@ -2,6 +2,10 @@
 #define VALIKKO_H
 
 #include <QWidget>
+#include <QDialog>
+#include <QtNetwork>
+#include <QNetworkAccessManager>
+#include <QJsonDocument>
 
 namespace Ui {
 class valikko;
@@ -18,9 +22,15 @@ public:
 private slots:
     void on_btnTilisiirto_clicked();
     void on_btnNostaRahaa_clicked();
+    void on_btnNaytaSaldo_clicked();
+    void getSaldoSlot (QNetworkReply *reply);
 
 private:
     Ui::valikko *ui;
+    QNetworkAccessManager *manager;
+    QNetworkAccessManager *oneBookManager;
+    QNetworkAccessManager *loginManager;
+    QNetworkReply *reply;
 
 signals:
     void openTilisiirto();

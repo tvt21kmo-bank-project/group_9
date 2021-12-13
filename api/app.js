@@ -14,6 +14,7 @@ var borrowerRouter = require('./routes/borrower');
 var saldoRouter = require('./routes/saldo');
 var bankRouter = require('./routes/bank');
 var loginRouter = require('./routes/login');
+var tapahtumatRouter = require('./routes/tapahtumat');
 
 app.use(helmet());
 app.use(cors());
@@ -40,6 +41,7 @@ app.use('/user', userRouter);
 app.use('/borrower', borrowerRouter);
 app.use('/saldo', saldoRouter);
 app.use('/bank', bankRouter);
+app.use('/tapahtumat',tapahtumatRouter);
 module.exports = app;
 
 

@@ -55,6 +55,13 @@
     <string>Nosta rahaa</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="btnNaytaSaldo">
+   <property name="geometry">
+    <rect>
+     <x>534</x>
+     <y>212</y>
+     <width>181</width>
+     <height>71</height>
   <widget class="QLabel" name="background_valikko">
    <property name="geometry">
     <rect>
@@ -248,6 +255,17 @@
     <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
+    <string>Nayta Saldo</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="txtSaldo">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>360</y>
+     <width>451</width>
+     <height>111</height>
+    </rect>
     <string>Tilisiirto</string>
    </property>
   </widget>

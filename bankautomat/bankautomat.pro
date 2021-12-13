@@ -18,7 +18,7 @@ SOURCES += \
     mainwindow.cpp \
     nosto.cpp \
     tilisiirto.cpp \
-    valikko.cpp
+    valikko.cpp \
 
 HEADERS += \
     aloitus.h \
@@ -26,7 +26,7 @@ HEADERS += \
     mainwindow.h \
     nosto.h \
     tilisiirto.h \
-    valikko.h
+    valikko.h \
 
 FORMS += \
     aloitus.ui \
@@ -34,7 +34,7 @@ FORMS += \
     mainwindow.ui \
     nosto.ui \
     tilisiirto.ui \
-    valikko.ui
+    valikko.ui \
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
