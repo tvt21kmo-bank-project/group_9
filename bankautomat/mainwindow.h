@@ -4,6 +4,7 @@
 #include "tilisiirto.h"
 #include "nosto.h"
 #include "valikko.h"
+#include "aloitus.h"
 
 #include <QMainWindow>
 #include <QtNetwork>

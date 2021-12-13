@@ -12,6 +12,7 @@ TEMPLATE = app
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    aloitus.cpp \
     keypad.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -20,6 +21,7 @@ SOURCES += \
     valikko.cpp \
 
 HEADERS += \
+    aloitus.h \
     keypad.h \
     mainwindow.h \
     nosto.h \
@@ -27,6 +29,7 @@ HEADERS += \
     valikko.h \
 
 FORMS += \
+    aloitus.ui \
     keypad.ui \
     mainwindow.ui \
     nosto.ui \

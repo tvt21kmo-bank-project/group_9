@@ -30,7 +30,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_btnLogin_clicked()
 {
-    objValikko->show();
     QJsonObject json; //luodaan JSON objekti ja lisätään data
     json.insert("username",ui->lineEditUsername->text());
     json.insert("password",ui->lineEditPassword->text());
