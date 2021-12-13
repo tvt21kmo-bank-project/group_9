@@ -47,7 +47,7 @@ void valikko::getSaldoSlot(QNetworkReply *reply)
     QString saldo;
     foreach (const QJsonValue &value, json_array) {
     QJsonObject json_obj = value.toObject();
-    saldo+=QString::number(json_obj["Saldo"].toInt())+","+json_obj["Etunimi"].toString()+","+json_obj["Sukunimi"].toString()+"\r";
+    saldo+=QString::number(json_obj["Saldo"].toInt())+" "+json_obj["Tilinumero"].toString()+" "+json_obj["Etunimi"].toString()+" "+json_obj["Sukunimi"].toString();
     }
     qDebug()<<saldo;
     ui->txtSaldo->setText(saldo);
