@@ -55,18 +55,11 @@
     <string>Nosta rahaa</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="btnNaytaSaldo">
-   <property name="geometry">
-    <rect>
-     <x>534</x>
-     <y>212</y>
-     <width>181</width>
-     <height>71</height>
   <widget class="QLabel" name="background_valikko">
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>-10</y>
+     <y>0</y>
      <width>791</width>
      <height>871</height>
     </rect>
@@ -255,20 +248,34 @@
     <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
-    <string>Nayta Saldo</string>
-   </property>
-  </widget>
-  <widget class="QTextEdit" name="txtSaldo">
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>360</y>
-     <width>451</width>
-     <height>111</height>
-    </rect>
     <string>Tilisiirto</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="btnNaytaSaldo">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>220</y>
+     <width>75</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>btnNaytaSaldo</zorder>
+  <zorder>btnTilisiirto</zorder>
+  <zorder>btnNostaRahaa</zorder>
+  <zorder>background_valikko</zorder>
+  <zorder>Hei</zorder>
+  <zorder>label</zorder>
+  <zorder>label_nostarahaa</zorder>
+  <zorder>label_nostarahaa_2</zorder>
+  <zorder>label_nostarahaa_3</zorder>
+  <zorder>label_nostarahaa_4</zorder>
+  <zorder>label_nostarahaa_5</zorder>
+  <zorder>label_nostarahaa_6</zorder>
  </widget>
  <resources>
   <include location="resources.qrc"/>

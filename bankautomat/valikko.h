@@ -23,7 +23,6 @@ private slots:
     void on_btnTilisiirto_clicked();
     void on_btnNostaRahaa_clicked();
     void on_btnNaytaSaldo_clicked();
-    void getSaldoSlot (QNetworkReply *reply);
 
 private:
     Ui::valikko *ui;
@@ -35,6 +34,7 @@ private:
 signals:
     void openTilisiirto();
     void openNostaRahaa();
+    void openNaytaSaldo();
 };
 
 #endif // VALIKKO_H
