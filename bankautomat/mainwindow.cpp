@@ -31,8 +31,8 @@ MainWindow::~MainWindow()
 void MainWindow::on_btnLogin_clicked()
 {
     QJsonObject json; //luodaan JSON objekti ja lisätään data
-    json.insert("username",ui->lineEditUsername->text());
-    json.insert("password",ui->lineEditPassword->text());
+    json.insert("Kayttajatunnus",ui->lineEditUsername->text());
+    json.insert("Salasana",ui->lineEditPassword->text());
     QString site_url="http://localhost:3000/login";
     QString credentials="newAdmin:newPass";
     QNetworkRequest request((site_url));
@@ -41,7 +41,7 @@ void MainWindow::on_btnLogin_clicked()
     QString headerData = "Basic " + data;
     request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
     loginManager = new QNetworkAccessManager(this);
-    connect(loginManager, SIGNAL(finished (QNetworkReply*)),
+    connect(loginManager, SIGNAL(finished(QNetworkReply*)),
     this, SLOT(loginSlot(QNetworkReply*)));
     reply = loginManager->post(request, QJsonDocument(json).toJson());
 }
@@ -57,7 +57,7 @@ void MainWindow::loginSlot(QNetworkReply *reply)
     else {
         ui->lineEditPassword->setText("");
         ui->lineEditUsername->setText("");
-        qDebug()<<"tunnus ja salasana ei täsmää";
+        qDebug()<<"Käyttäjätunnus ja salasana ei täsmää";
     }
 }
 

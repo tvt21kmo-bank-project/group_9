@@ -55,18 +55,11 @@
     <string>Nosta rahaa</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="btnNaytaSaldo">
-   <property name="geometry">
-    <rect>
-     <x>534</x>
-     <y>212</y>
-     <width>181</width>
-     <height>71</height>
   <widget class="QLabel" name="background_valikko">
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>-10</y>
+     <y>0</y>
      <width>791</width>
      <height>871</height>
     </rect>
@@ -107,19 +100,6 @@
     <string>Hei</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>50</y>
-     <width>221</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>tähän hakemaan käyttäjän nimi!</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_nostarahaa">
    <property name="geometry">
     <rect>
@@ -143,11 +123,11 @@
     <string>Nosta rahaa</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_nostarahaa_2">
+  <widget class="QLabel" name="label_naytasaldo">
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>210</y>
+     <y>220</y>
      <width>151</width>
      <height>51</height>
     </rect>
@@ -166,11 +146,11 @@
     <string>Näytä saldo</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_nostarahaa_3">
+  <widget class="QLabel" name="label_tilitapahtumat">
    <property name="geometry">
     <rect>
      <x>120</x>
-     <y>290</y>
+     <y>310</y>
      <width>251</width>
      <height>51</height>
     </rect>
@@ -189,7 +169,7 @@
     <string>Selaa tilitapahtumia</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_nostarahaa_4">
+  <widget class="QLabel" name="label_talletus">
    <property name="geometry">
     <rect>
      <x>470</x>
@@ -212,11 +192,11 @@
     <string>Talleta rahaa</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_nostarahaa_5">
+  <widget class="QLabel" name="label_kirjaudu_ulos">
    <property name="geometry">
     <rect>
      <x>470</x>
-     <y>290</y>
+     <y>310</y>
      <width>171</width>
      <height>51</height>
     </rect>
@@ -235,11 +215,11 @@
     <string>Kirjaudu ulos</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_nostarahaa_6">
+  <widget class="QLabel" name="label_tilisiirto">
    <property name="geometry">
     <rect>
      <x>470</x>
-     <y>210</y>
+     <y>220</y>
      <width>171</width>
      <height>51</height>
     </rect>
@@ -255,18 +235,17 @@
     <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
-    <string>Nayta Saldo</string>
+    <string>Tilisiirto</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="txtSaldo">
+  <widget class="QLineEdit" name="line_nimi">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>360</y>
-     <width>451</width>
-     <height>111</height>
+     <x>290</x>
+     <y>60</y>
+     <width>231</width>
+     <height>41</height>
     </rect>
-    <string>Tilisiirto</string>
    </property>
   </widget>
  </widget>
