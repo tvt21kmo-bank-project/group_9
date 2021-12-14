@@ -1,5 +1,11 @@
 <RCC>
     <qresource prefix="/new/prefix1">
         <file>bankautomat_front_panel.png</file>
+	<file>note10.gif</file>
+	<file>note20.gif</file>
+	<file>note50.gif</file>
+	<file>note100.gif</file>
+	<file>note200.gif</file>
+	<file>note500.gif</file>
     </qresource>
 </RCC>

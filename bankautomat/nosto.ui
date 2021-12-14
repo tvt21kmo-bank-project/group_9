@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>687</width>
-    <height>871</height>
+    <width>1029</width>
+    <height>965</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="font">
    <font>
@@ -25,9 +31,9 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>180</y>
-     <width>41</width>
+     <x>20</x>
+     <y>160</y>
+     <width>51</width>
      <height>51</height>
     </rect>
    </property>
@@ -59,8 +65,8 @@
   <widget class="QPushButton" name="btnNosto100">
    <property name="geometry">
     <rect>
-     <x>690</x>
-     <y>180</y>
+     <x>630</x>
+     <y>160</y>
      <width>41</width>
      <height>51</height>
     </rect>
@@ -80,11 +86,11 @@
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="btnNosto250">
+  <widget class="QPushButton" name="btnNosto200">
    <property name="geometry">
     <rect>
-     <x>680</x>
-     <y>260</y>
+     <x>620</x>
+     <y>240</y>
      <width>51</width>
      <height>51</height>
     </rect>
@@ -107,8 +113,8 @@
   <widget class="QPushButton" name="btnNosto500">
    <property name="geometry">
     <rect>
-     <x>690</x>
-     <y>350</y>
+     <x>630</x>
+     <y>320</y>
      <width>41</width>
      <height>41</height>
     </rect>
@@ -134,10 +140,10 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>680</x>
-     <y>430</y>
+     <x>620</x>
+     <y>400</y>
      <width>51</width>
-     <height>51</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
@@ -159,7 +165,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>260</y>
+     <y>240</y>
      <width>51</width>
      <height>51</height>
     </rect>
@@ -183,7 +189,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>350</y>
+     <y>320</y>
      <width>51</width>
      <height>41</height>
     </rect>
@@ -207,7 +213,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>430</y>
+     <y>390</y>
      <width>51</width>
      <height>51</height>
     </rect>
@@ -230,10 +236,10 @@
   <widget class="QLabel" name="infoNosto">
    <property name="geometry">
     <rect>
-     <x>200</x>
+     <x>210</x>
      <y>170</y>
-     <width>271</width>
-     <height>201</height>
+     <width>251</width>
+     <height>191</height>
     </rect>
    </property>
    <property name="font">
@@ -259,13 +265,19 @@
      <x>0</x>
      <y>0</y>
      <width>687</width>
-     <height>871</height>
+     <height>931</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
      <width>687</width>
      <height>871</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
     </size>
    </property>
    <property name="acceptDrops">
@@ -408,7 +420,7 @@
     <string notr="true">color: white;</string>
    </property>
    <property name="text">
-    <string>250 €</string>
+    <string>200 €</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_6">
@@ -438,9 +450,9 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>400</y>
+     <y>390</y>
      <width>171</width>
-     <height>41</height>
+     <height>51</height>
     </rect>
    </property>
    <property name="font">
@@ -454,7 +466,7 @@
     <string notr="true">color: white;</string>
    </property>
    <property name="text">
-    <string>ALKUUN</string>
+    <string>Sulje</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="syota_muu_summa">
@@ -497,29 +509,106 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout"/>
   </widget>
-  <widget class="QLabel" name="note_animation">
+  <widget class="QLabel" name="label_note10">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>750</y>
-     <width>281</width>
-     <height>121</height>
+     <x>160</x>
+     <y>740</y>
+     <width>311</width>
+     <height>131</height>
     </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border: 0px;</string>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Plain</enum>
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resources.qrc">:/new/prefix1/note10.gif</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_note20">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>740</y>
+     <width>311</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resources.qrc">:/new/prefix1/note20.gif</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_note50">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>740</y>
+     <width>311</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resources.qrc">:/new/prefix1/note50.gif</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_note100">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>740</y>
+     <width>311</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resources.qrc">:/new/prefix1/note100.gif</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_note200">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>740</y>
+     <width>311</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resources.qrc">:/new/prefix1/note200.gif</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_note500">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>740</y>
+     <width>311</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resources.qrc">:/new/prefix1/note500.gif</pixmap>
    </property>
   </widget>
   <zorder>background_image</zorder>
   <zorder>btnNosto20</zorder>
   <zorder>btnNosto100</zorder>
-  <zorder>btnNosto250</zorder>
+  <zorder>btnNosto200</zorder>
   <zorder>btnNosto500</zorder>
   <zorder>btnNostoMuuSumma</zorder>
   <zorder>btnNosto40</zorder>
@@ -535,7 +624,12 @@
   <zorder>label_7</zorder>
   <zorder>syota_muu_summa</zorder>
   <zorder>verticalLayoutWidget</zorder>
-  <zorder>note_animation</zorder>
+  <zorder>label_note500</zorder>
+  <zorder>label_note200</zorder>
+  <zorder>label_note100</zorder>
+  <zorder>label_note50</zorder>
+  <zorder>label_note20</zorder>
+  <zorder>label_note10</zorder>
  </widget>
  <resources>
   <include location="resources.qrc"/>

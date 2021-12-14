@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>764</width>
-    <height>871</height>
+    <width>781</width>
+    <height>1056</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -41,9 +41,9 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>120</y>
-     <width>61</width>
-     <height>51</height>
+     <y>190</y>
+     <width>51</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
@@ -51,8 +51,11 @@
      <pointsize>17</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;</string>
+   </property>
    <property name="text">
-    <string>Nosta rahaa</string>
+    <string/>
    </property>
   </widget>
   <widget class="QLabel" name="background_valikko">
@@ -61,7 +64,7 @@
      <x>0</x>
      <y>0</y>
      <width>791</width>
-     <height>871</height>
+     <height>1041</height>
     </rect>
    </property>
    <property name="minimumSize">
@@ -81,7 +84,7 @@
    <property name="geometry">
     <rect>
      <x>180</x>
-     <y>50</y>
+     <y>100</y>
      <width>61</width>
      <height>51</height>
     </rect>
@@ -103,9 +106,9 @@
   <widget class="QLabel" name="label_nostarahaa">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>130</y>
-     <width>151</width>
+     <x>100</x>
+     <y>180</y>
+     <width>201</width>
      <height>51</height>
     </rect>
    </property>
@@ -126,9 +129,9 @@
   <widget class="QLabel" name="label_naytasaldo">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>220</y>
-     <width>151</width>
+     <x>100</x>
+     <y>270</y>
+     <width>201</width>
      <height>51</height>
     </rect>
    </property>
@@ -149,8 +152,8 @@
   <widget class="QLabel" name="label_tilitapahtumat">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>310</y>
+     <x>100</x>
+     <y>360</y>
      <width>251</width>
      <height>51</height>
     </rect>
@@ -172,9 +175,9 @@
   <widget class="QLabel" name="label_talletus">
    <property name="geometry">
     <rect>
-     <x>470</x>
-     <y>130</y>
-     <width>171</width>
+     <x>450</x>
+     <y>180</y>
+     <width>211</width>
      <height>51</height>
     </rect>
    </property>
@@ -195,9 +198,9 @@
   <widget class="QLabel" name="label_kirjaudu_ulos">
    <property name="geometry">
     <rect>
-     <x>470</x>
-     <y>310</y>
-     <width>171</width>
+     <x>460</x>
+     <y>360</y>
+     <width>211</width>
      <height>51</height>
     </rect>
    </property>
@@ -218,9 +221,9 @@
   <widget class="QLabel" name="label_tilisiirto">
    <property name="geometry">
     <rect>
-     <x>470</x>
-     <y>220</y>
-     <width>171</width>
+     <x>530</x>
+     <y>270</y>
+     <width>131</width>
      <height>51</height>
     </rect>
    </property>
@@ -242,12 +245,23 @@
    <property name="geometry">
     <rect>
      <x>290</x>
-     <y>60</y>
+     <y>110</y>
      <width>231</width>
      <height>41</height>
     </rect>
    </property>
   </widget>
+  <zorder>background_valikko</zorder>
+  <zorder>btnTilisiirto</zorder>
+  <zorder>btnNostaRahaa</zorder>
+  <zorder>Hei</zorder>
+  <zorder>label_nostarahaa</zorder>
+  <zorder>label_naytasaldo</zorder>
+  <zorder>label_tilitapahtumat</zorder>
+  <zorder>label_talletus</zorder>
+  <zorder>label_kirjaudu_ulos</zorder>
+  <zorder>label_tilisiirto</zorder>
+  <zorder>line_nimi</zorder>
  </widget>
  <resources>
   <include location="resources.qrc"/>
