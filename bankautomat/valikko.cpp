@@ -38,7 +38,7 @@ void valikko::on_btnNaytaSaldo_clicked()
     this, SLOT(getSaldoSlot(QNetworkReply*)));
     reply = manager->get(request);
 }
-
+/*
 void valikko::getSaldoSlot(QNetworkReply *reply)
 {
     QByteArray response_data=reply->readAll();
@@ -53,4 +53,4 @@ void valikko::getSaldoSlot(QNetworkReply *reply)
     ui->txtSaldo->setText(saldo);
     reply->deleteLater();
     manager->deleteLater();
-}
+}*/
