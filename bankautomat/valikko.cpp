@@ -6,11 +6,15 @@ valikko::valikko(QWidget *parent) :
     ui(new Ui::valikko)
 {
     ui->setupUi(this);
+
+    objNosto = new Nosto;
 }
 
 valikko::~valikko()
 {
     delete ui;
+    delete objNosto;
+    objNosto = nullptr;
 }
 
 void valikko::on_btnTilisiirto_clicked()
@@ -21,7 +25,7 @@ void valikko::on_btnTilisiirto_clicked()
 
 void valikko::on_btnNostaRahaa_clicked()
 {
-    emit openNostaRahaa();
+    objNosto->showNosto();
 }
 
 void valikko::on_btnNaytaSaldo_clicked()

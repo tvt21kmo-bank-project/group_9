@@ -18,9 +18,10 @@ class Nosto : public QDialog
 
 public:
     explicit Nosto(QWidget *parent = nullptr);
-    ~Nosto();
+    virtual ~Nosto();
+    void showNosto();
+    //QTimer timer;
 
-    QTimer timer;
 public slots:
     void custom_summan_syotto(const QString &text);
 
@@ -30,30 +31,35 @@ private slots:
     void on_btnNosto40_clicked();
     void on_btnNosto60_clicked();
     void on_btnNosto100_clicked();
-    void on_btnNosto250_clicked();
+    void on_btnNosto200_clicked();
     void on_btnNosto500_clicked();
     void on_btnNostoMuuSumma_clicked();
 
     void infoNostoSlot(QNetworkReply *reply);
     void onTimeout();
 
-    void nosta_20();
-  //  void handle_animation(char animation_type);
     void clear_animation_screen();
-
-
 signals:
     void NostoPainettu();
-   // void animation_type_changed(char animation_type);
 
 private:
+    int nostonSumma;
+    int nostonArvo;
+    //int timerInterval = 5000;
+
+    void hideButtons();
+    void kasitteleNosto(int nostonSumma);
+    void naytaAnimaatio(QMovie *fileaddress);
+    void tulostaCustomSumma();
+    void NostoLaskuri();
+    void talletaNostonArvo(int arvo);
+    int haeNostonArvo();
+
+
     Ui::Nosto *ui;
     QNetworkAccessManager *NostoManager;
     QNetworkReply *reply;
-
-//    bool eventFilter(QObject*, QEvent*);
-
-    int timerInterval = 5000;
+//  bool eventFilter(QObject*, QEvent*);
 };
 
 #endif // NOSTO_H

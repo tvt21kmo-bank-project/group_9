@@ -1,6 +1,8 @@
 #ifndef VALIKKO_H
 #define VALIKKO_H
 
+#include "nosto.h"
+
 #include <QWidget>
 #include <QDialog>
 #include <QtNetwork>
@@ -23,7 +25,7 @@ private slots:
     void on_btnTilisiirto_clicked();
     void on_btnNostaRahaa_clicked();
     void on_btnNaytaSaldo_clicked();
-    void getSaldoSlot (QNetworkReply *reply);
+    //void getSaldoSlot (QNetworkReply *reply);
 
 private:
     Ui::valikko *ui;
@@ -31,6 +33,8 @@ private:
     QNetworkAccessManager *oneBookManager;
     QNetworkAccessManager *loginManager;
     QNetworkReply *reply;
+
+    Nosto *objNosto;
 
 signals:
     void openTilisiirto();
