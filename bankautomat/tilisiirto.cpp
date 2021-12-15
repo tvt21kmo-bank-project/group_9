@@ -6,7 +6,11 @@ Tilisiirto::Tilisiirto(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Tilisiirto)
 {
+    installEventFilter(this);
     ui->setupUi(this);
+
+    objTimerTilisiirto = new QTimer(this);
+    connect(objTimerTilisiirto, SIGNAL(timeout()), this, SLOT(suljeIkkuna()));
 
     connect(this, SIGNAL(btnPainettu()),
             this, SLOT(btnclicked()));
@@ -14,12 +18,21 @@ Tilisiirto::Tilisiirto(QWidget *parent) :
 
 Tilisiirto::~Tilisiirto()
 {
+    removeEventFilter(this);
     delete ui;
+    delete objTimerTilisiirto;
+    objTimerTilisiirto = nullptr;
+}
+
+void Tilisiirto::naytaTilisiirtoIkkuna()
+{
+    objTimerTilisiirto->start(20000);
+    //qDebug()<<"timer nosto started -> showNosto";
+    this->showFullScreen();
 }
 
 void Tilisiirto::btnclicked(){
         qDebug() << "button clicked";
-  //  objectTimer->quit();
 }
 
 void Tilisiirto::on_btnDebit_clicked()
@@ -59,6 +72,15 @@ void Tilisiirto::debitSlot(QNetworkReply *reply)
         ui->leDebitSumma->setText("");
     }
 }
+
+void Tilisiirto::suljeIkkuna()
+{
+    objTimerTilisiirto->stop();
+    //qDebug() << "timer tilisiirto stopped";
+    this->close();
+    emit closed();
+}
+
 void Tilisiirto::on_btnCredit_clicked()
 {
     emit btnPainettu();
@@ -69,4 +91,23 @@ void Tilisiirto::creditSlot(QNetworkReply *reply)
 
 }
 
+bool Tilisiirto::eventFilter(QObject *obj, QEvent *e)
+{
+    if(e->type() == QEvent::ChildAdded) // install eventfilter on children
+    {
+        QChildEvent *ce = static_cast<QChildEvent*>(e);
+        ce->child()->installEventFilter(this);
+    }
+    else if(e->type() == QEvent::ChildRemoved) // remove eventfilter from children
+    {
+        QChildEvent *ce = static_cast<QChildEvent*>(e);
+        ce->child()->removeEventFilter(this);
+    }
+    if((e->type() == QEvent::MouseButtonPress) || (e->type() == QEvent::KeyPress)) //check for mouse or key press
+    {
+        objTimerTilisiirto->start(20000);
+       //qDebug() << "timer restarted on mouse or key press";
+    }
+    return QWidget::eventFilter( obj, e ); // apply default filter
+}
 

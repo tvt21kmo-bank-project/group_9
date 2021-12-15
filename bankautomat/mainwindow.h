@@ -20,6 +20,9 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+signals:
+    void startMainTimer();
+
 private slots:
     void on_btnAloitus_clicked();
     void on_btnAloitus_2_clicked();
