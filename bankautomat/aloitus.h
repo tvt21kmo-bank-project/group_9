@@ -1,7 +1,12 @@
 #ifndef ALOITUS_H
 #define ALOITUS_H
 
+#include "valikko.h"
+
 #include <QWidget>
+#include <QtNetwork>
+#include <QNetworkAccessManager>
+#include <QJsonDocument>
 
 namespace Ui {
 class Aloitus;
@@ -15,51 +20,30 @@ public:
     explicit Aloitus(QWidget *parent = nullptr);
     ~Aloitus();
 
+public slots:
+    void numpadinSyotto(const QString &teksti);
+
 private slots:
-    void on_pushButton_clicked();
-
-    void on_pushButton_2_clicked();
-
-    void on_pushButton_3_clicked();
-
-    void on_pushButton_4_clicked();
-
-    void on_pushButton_5_clicked();
-
-    void on_pushButton_6_clicked();
-
-    void on_pushButton_7_clicked();
-
-    void on_pushButton_8_clicked();
-
-    void on_pushButton_9_clicked();
-
-    void on_pushButton_10_clicked();
-
-    void on_pushButton_11_clicked();
-
-    void on_pushButton_12_clicked();
-
-    void on_pushButton_13_clicked();
-
-    void on_pushButton_14_clicked();
-
-    void on_pushButton_15_clicked();
-
-    void on_pushButton_16_clicked();
-
-    void on_pushButton_17_clicked();
-
-    void on_pushButton_18_clicked();
-
-    void on_pushButton_19_clicked();
-
-    void on_pushButton_20_clicked();
-
-    void on_pushButton_21_clicked();
+    void loginSlot (QNetworkReply *reply);
+    void saveUserInfo (QNetworkReply *reply);
+    int on_btnLogin_clicked();
+    void getUserInfo();
+    void openAloitus();
 
 private:
+    int Ktunnus;
     Ui::Aloitus *ui;
+    QNetworkAccessManager *manager;
+    QNetworkAccessManager *getDataManager;
+    QNetworkAccessManager *loginManager;
+    QNetworkReply *reply;
+
+    valikko *objValikko;
+
+    bool editingUsername = true;
+    bool valmista = false;
+
+//  EventFilter *filtr;
 };
 
 #endif // ALOITUS_H

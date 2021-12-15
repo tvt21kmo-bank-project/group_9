@@ -605,6 +605,54 @@
     <pixmap resource="resources.qrc">:/new/prefix1/note500.gif</pixmap>
    </property>
   </widget>
+  <widget class="QLabel" name="label_tilinro">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>80</y>
+     <width>221</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+     <underline>true</underline>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_saldo">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>80</y>
+     <width>221</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+     <underline>true</underline>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>background_image</zorder>
   <zorder>btnNosto20</zorder>
   <zorder>btnNosto100</zorder>
@@ -630,6 +678,8 @@
   <zorder>label_note50</zorder>
   <zorder>label_note20</zorder>
   <zorder>label_note10</zorder>
+  <zorder>label_tilinro</zorder>
+  <zorder>label_saldo</zorder>
  </widget>
  <resources>
   <include location="resources.qrc"/>

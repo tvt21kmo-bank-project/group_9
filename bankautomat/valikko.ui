@@ -23,7 +23,7 @@
    <property name="geometry">
     <rect>
      <x>690</x>
-     <y>210</y>
+     <y>270</y>
      <width>51</width>
      <height>51</height>
     </rect>
@@ -241,14 +241,80 @@
     <string>Tilisiirto</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="line_nimi">
+  <widget class="QPushButton" name="btnNaytaSaldo">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>110</y>
-     <width>231</width>
-     <height>41</height>
+     <x>20</x>
+     <y>270</y>
+     <width>51</width>
+     <height>51</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnKirjauduUlos">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>350</y>
+     <width>61</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_tilinomistaja">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>100</y>
+     <width>291</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <underline>true</underline>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_tilinumero">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>450</y>
+     <width>291</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <underline>true</underline>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
   <zorder>background_valikko</zorder>
@@ -261,7 +327,10 @@
   <zorder>label_talletus</zorder>
   <zorder>label_kirjaudu_ulos</zorder>
   <zorder>label_tilisiirto</zorder>
-  <zorder>line_nimi</zorder>
+  <zorder>btnNaytaSaldo</zorder>
+  <zorder>btnKirjauduUlos</zorder>
+  <zorder>label_tilinomistaja</zorder>
+  <zorder>label_tilinumero</zorder>
  </widget>
  <resources>
   <include location="resources.qrc"/>

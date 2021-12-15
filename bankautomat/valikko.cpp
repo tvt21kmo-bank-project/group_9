@@ -8,6 +8,8 @@ valikko::valikko(QWidget *parent) :
     ui->setupUi(this);
 
     objNosto = new Nosto;
+    objSaldo = new saldo;
+    objTilisiirto = new Tilisiirto;
 }
 
 valikko::~valikko()
@@ -15,6 +17,22 @@ valikko::~valikko()
     delete ui;
     delete objNosto;
     objNosto = nullptr;
+    delete objSaldo;
+    objSaldo = nullptr;
+    delete objTilisiirto;
+    objTilisiirto = nullptr;
+}
+
+void valikko::kirjautumistietojenTallentaminen(QStringList lista){
+    etunimi = lista[0];
+    sukunimi = lista[1];
+    kayttajatunnus = lista[2];
+    tilinro = lista[3];
+    //qDebug()<< "kirjautumistiedot: " << etunimi + sukunimi + kayttajatunnus + tilinro;
+
+    //alla tilinomistajan + tilinumeron alustaminen näytölle
+    ui->label_tilinomistaja->setText(etunimi+" "+sukunimi);
+    ui->label_tilinumero->setText("Valittu tili: "+tilinro);
 }
 
 void valikko::on_btnTilisiirto_clicked()
@@ -25,36 +43,24 @@ void valikko::on_btnTilisiirto_clicked()
 
 void valikko::on_btnNostaRahaa_clicked()
 {
-    objNosto->showNosto();
+    objNosto->showNosto(tilinro);
 }
 
 void valikko::on_btnNaytaSaldo_clicked()
 {
-    QString site_url="http://localhost:3000/saldo/1234";
-    QString credentials="newAdmin:newPass";
-    QNetworkRequest request((site_url));
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-    QByteArray data = credentials.toLocal8Bit().toBase64();
-    QString headerData = "Basic " + data;
-    request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
-    manager = new QNetworkAccessManager(this);
-    connect(manager, SIGNAL(finished (QNetworkReply*)),
-    this, SLOT(getSaldoSlot(QNetworkReply*)));
-    reply = manager->get(request);
+    objSaldo->show();
+    objSaldo->naytasaldo(kayttajatunnus);
 }
-/*
-void valikko::getSaldoSlot(QNetworkReply *reply)
+
+void valikko::on_btnKirjauduUlos_clicked()
 {
-    QByteArray response_data=reply->readAll();
-    QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
-    QJsonArray json_array = json_doc.array();
-    QString saldo;
-    foreach (const QJsonValue &value, json_array) {
-    QJsonObject json_obj = value.toObject();
-    saldo+=QString::number(json_obj["Saldo"].toInt())+" "+json_obj["Tilinumero"].toString()+" "+json_obj["Etunimi"].toString()+" "+json_obj["Sukunimi"].toString();
-    }
-    qDebug()<<saldo;
-    ui->txtSaldo->setText(saldo);
-    reply->deleteLater();
-    manager->deleteLater();
-}*/
+    this->hide();
+    ui->label_tilinomistaja->clear();
+    ui->label_tilinumero->clear();
+    etunimi = "0";
+    sukunimi = "0";
+    kayttajatunnus = "0";
+    tilinro = "0";
+    emit closeValikko();
+}
+

@@ -20,61 +20,55 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLineEdit" name="lineEditUsername">
+   <widget class="QPushButton" name="btnAloitus">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>160</y>
-      <width>141</width>
-      <height>31</height>
+      <x>20</x>
+      <y>180</y>
+      <width>51</width>
+      <height>51</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEditPassword">
-    <property name="geometry">
-     <rect>
-      <x>290</x>
-      <y>230</y>
-      <width>141</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
     </property>
     <property name="text">
      <string/>
     </property>
-    <property name="echoMode">
-     <enum>QLineEdit::Password</enum>
-    </property>
    </widget>
-   <widget class="QPushButton" name="btnLogin">
+   <widget class="QPushButton" name="btnAloitus_8">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>310</y>
-      <width>141</width>
+      <x>700</x>
+      <y>450</y>
+      <width>51</width>
       <height>51</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
     </property>
     <property name="text">
-     <string>Kirjaudu</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="background_login">
+   <widget class="QPushButton" name="btnAloitus_11">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>550</y>
+      <width>51</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="background_aloitus">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -96,18 +90,18 @@
      <pixmap resource="resources.qrc">:/new/prefix1/bankautomat_front_panel.png</pixmap>
     </property>
    </widget>
-   <widget class="QLabel" name="label_kayttajatunnus">
+   <widget class="QLabel" name="tekstit_aloitus2">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>130</y>
-      <width>131</width>
-      <height>16</height>
+      <x>160</x>
+      <y>210</y>
+      <width>461</width>
+      <height>151</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <pointsize>22</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -116,38 +110,345 @@
      <string notr="true">color: rgb(255, 255, 255);</string>
     </property>
     <property name="text">
-     <string>Käyttäjätunnus:</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Paina mitä tahansa näppäintä jatkaaksesi&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_salasana">
+   <widget class="QLabel" name="tekstit_aloitus">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>200</y>
-      <width>131</width>
-      <height>16</height>
+      <x>140</x>
+      <y>110</y>
+      <width>491</width>
+      <height>121</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>12</pointsize>
+      <pointsize>22</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);</string>
+     <string notr="true">color: rgb(255, 255, 255);
+</string>
     </property>
     <property name="text">
-     <string>Salasana:</string>
+     <string>Kirjaudu sisään, ole hyvä</string>
     </property>
    </widget>
-   <zorder>background_login</zorder>
-   <zorder>lineEditUsername</zorder>
-   <zorder>lineEditPassword</zorder>
-   <zorder>btnLogin</zorder>
-   <zorder>label_kayttajatunnus</zorder>
-   <zorder>label_salasana</zorder>
+   <widget class="QPushButton" name="btnAloitus_12">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>600</y>
+      <width>51</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAloitus_5">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>190</y>
+      <width>51</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAloitus_3">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>350</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAloitus_9">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>550</y>
+      <width>51</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAloitus_16">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>640</y>
+      <width>51</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAloitus_7">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>360</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAloitus_19">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>550</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAloitus_10">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>550</y>
+      <width>51</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAloitus_18">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>680</y>
+      <width>51</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAloitus_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>270</y>
+      <width>51</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAloitus_20">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>600</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAloitus_4">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>440</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAloitus_17">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>640</y>
+      <width>51</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAloitus_15">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>640</y>
+      <width>51</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAloitus_14">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>600</y>
+      <width>51</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAloitus_13">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>600</y>
+      <width>51</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAloitus_6">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>280</y>
+      <width>51</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnAloitus_21">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>640</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border: none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>background_aloitus</zorder>
+   <zorder>btnAloitus</zorder>
+   <zorder>btnAloitus_8</zorder>
+   <zorder>btnAloitus_11</zorder>
+   <zorder>tekstit_aloitus2</zorder>
+   <zorder>tekstit_aloitus</zorder>
+   <zorder>btnAloitus_12</zorder>
+   <zorder>btnAloitus_5</zorder>
+   <zorder>btnAloitus_3</zorder>
+   <zorder>btnAloitus_9</zorder>
+   <zorder>btnAloitus_16</zorder>
+   <zorder>btnAloitus_7</zorder>
+   <zorder>btnAloitus_19</zorder>
+   <zorder>btnAloitus_10</zorder>
+   <zorder>btnAloitus_18</zorder>
+   <zorder>btnAloitus_2</zorder>
+   <zorder>btnAloitus_20</zorder>
+   <zorder>btnAloitus_4</zorder>
+   <zorder>btnAloitus_17</zorder>
+   <zorder>btnAloitus_15</zorder>
+   <zorder>btnAloitus_14</zorder>
+   <zorder>btnAloitus_13</zorder>
+   <zorder>btnAloitus_6</zorder>
+   <zorder>btnAloitus_21</zorder>
   </widget>
  </widget>
  <resources>

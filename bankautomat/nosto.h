@@ -19,7 +19,7 @@ class Nosto : public QDialog
 public:
     explicit Nosto(QWidget *parent = nullptr);
     virtual ~Nosto();
-    void showNosto();
+    void showNosto(QString);
     //QTimer timer;
 
 public slots:
