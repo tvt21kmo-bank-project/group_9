@@ -30,6 +30,8 @@ void valikko::kirjautumistietojenTallentaminen(QStringList lista){
     tilinro = lista[3];
     //qDebug()<< "kirjautumistiedot: " << etunimi + sukunimi + kayttajatunnus + tilinro;
 
+    objNosto->saveTilinumero(tilinro);
+    qDebug() << tilinro;
     //alla tilinomistajan + tilinumeron alustaminen näytölle
     ui->label_tilinomistaja->setText(etunimi+" "+sukunimi);
     ui->label_tilinumero->setText("Valittu tili: "+tilinro);
@@ -43,7 +45,7 @@ void valikko::on_btnTilisiirto_clicked()
 
 void valikko::on_btnNostaRahaa_clicked()
 {
-    objNosto->showNosto(tilinro);
+    objNosto->showNosto();
 }
 
 void valikko::on_btnNaytaSaldo_clicked()

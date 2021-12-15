@@ -19,8 +19,9 @@ class Nosto : public QDialog
 public:
     explicit Nosto(QWidget *parent = nullptr);
     virtual ~Nosto();
-    void showNosto(QString);
+    void showNosto();
     //QTimer timer;
+    void saveTilinumero(QString);
 
 public slots:
     void custom_summan_syotto(const QString &text);
@@ -45,6 +46,7 @@ signals:
 private:
     int nostonSumma;
     int nostonArvo;
+    QString tilinumero;
     //int timerInterval = 5000;
 
     void hideButtons();
@@ -54,6 +56,7 @@ private:
     void NostoLaskuri();
     void talletaNostonArvo(int arvo);
     int haeNostonArvo();
+    QString getTilinumero();
 
 
     Ui::Nosto *ui;

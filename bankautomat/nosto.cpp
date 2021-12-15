@@ -27,10 +27,11 @@ Nosto::~Nosto()
     ui = nullptr;
 }
 
-void Nosto::showNosto(QString tilinumero){
+void Nosto::showNosto(){
     this->showFullScreen();
+    QString string = this->getTilinumero();
     ui->infoNosto->setText("");
-    ui->label_tilinro->setText("Tili: "+tilinumero);
+    ui->label_tilinro->setText("Tili: "+string);
     ui->btnNosto20->show();
     ui->btnNosto40->show();
     ui->btnNosto60->show();
@@ -165,10 +166,20 @@ int Nosto::haeNostonArvo(){
     return nostonSumma;
 }
 
+void Nosto::saveTilinumero(QString nro){
+    tilinumero = nro;
+}
+
+QString Nosto::getTilinumero(){
+    return tilinumero;
+}
+
 void Nosto::kasitteleNosto(int nostonSumma)
 {
+    QString tili = this->getTilinumero();
+    qDebug()<<tili;
     QJsonObject json; //luodaan JSON objekti ja lisätään data
-    json.insert("id","FI1111");
+    json.insert("id",tili);
     json.insert("summa",nostonSumma);
 
     this->talletaNostonArvo(nostonSumma);
