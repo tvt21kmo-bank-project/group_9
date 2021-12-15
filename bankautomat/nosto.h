@@ -20,8 +20,8 @@ public:
     explicit Nosto(QWidget *parent = nullptr);
     virtual ~Nosto();
     void showNosto();
-    //QTimer timer;
     void saveTilinumero(QString);
+    QTimer *objTimerNosto;
 
 public slots:
     void custom_summan_syotto(const QString &text);
@@ -35,13 +35,14 @@ private slots:
     void on_btnNosto200_clicked();
     void on_btnNosto500_clicked();
     void on_btnNostoMuuSumma_clicked();
-
     void infoNostoSlot(QNetworkReply *reply);
     void onTimeout();
-
     void clear_animation_screen();
+    void suljeIkkuna();
+
 signals:
     void NostoPainettu();
+    void closed();
 
 private:
     int nostonSumma;
@@ -58,11 +59,10 @@ private:
     int haeNostonArvo();
     QString getTilinumero();
 
-
     Ui::Nosto *ui;
     QNetworkAccessManager *NostoManager;
     QNetworkReply *reply;
-//  bool eventFilter(QObject*, QEvent*);
+    bool eventFilter(QObject*, QEvent*);
 };
 
 #endif // NOSTO_H

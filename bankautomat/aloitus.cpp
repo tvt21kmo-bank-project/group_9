@@ -8,11 +8,16 @@ Aloitus::Aloitus(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Aloitus)
 {
+    installEventFilter(this);
     ui->setupUi(this);
 
-    objValikko = new valikko;
-    connect(objValikko, SIGNAL(closeValikko()),this, SLOT(openAloitus()));
+    objTimer = new QTimer(this);
+    connect(objTimer,SIGNAL(timeout()), this, SLOT(suljeIkkuna()));
 
+    objValikko = new valikko;
+    //connect(objValikko, SIGNAL(closeValikko()),this, SLOT(openAloitus()));
+
+    // keypadin signaalin yhdistäminen ja lisääminen ui:n myVerticalLayout:iin
     Keypad *keypad = new Keypad(this);
     connect(keypad, SIGNAL(numpadiaPainettu(QString)),
             this, SLOT(numpadinSyotto(QString)));
@@ -22,18 +27,17 @@ Aloitus::Aloitus(QWidget *parent) :
        käyttäjä voi syöttää kirjautumiskenttiin vain numeroita 0-9 !!!!!!!!!!!!*/
     // ui->lineEditUsername->setValidator(new QRegExpValidator(QRegExp("[0-9]*"), ui->lineEditUsername));
     // ui->lineEditPassword->setValidator(new QRegExpValidator(QRegExp("[0-9]*"), ui->lineEditPassword));
-
-    if(ui->lineEditUsername->hasFocus()){
-
-    }
 }
 
 Aloitus::~Aloitus()
 {
+    removeEventFilter(this);
     delete ui;
     ui = nullptr;
     delete objValikko;
     objValikko = nullptr;
+    delete objTimer;
+    objTimer = nullptr;
 }
 
 void Aloitus::numpadinSyotto(const QString &teksti) //tässä siis numpadilla tunnusten syöttö & käsittely
@@ -56,12 +60,7 @@ void Aloitus::numpadinSyotto(const QString &teksti) //tässä siis numpadilla tu
             valmista = false;
         }
     } else if(teksti == "poistu"){
-        ui->lineEditUsername->clear();
-        ui->lineEditPassword->clear();
-        editingUsername = true;
-        ui->lineEditUsername->setStyleSheet(" ");
-        ui->lineEditPassword->setStyleSheet(" ");
-        this->close();
+        this->suljeIkkuna();
     } else if (teksti =="tyhjenna"){
         ui->lineEditUsername->clear();
         ui->lineEditPassword->clear();
@@ -86,6 +85,7 @@ void Aloitus::numpadinSyotto(const QString &teksti) //tässä siis numpadilla tu
 
 int Aloitus::on_btnLogin_clicked()
 {
+    //qDebug()<<"btn login clicked";
     ui->lineEditUsername->setStyleSheet(" ");
     ui->lineEditPassword->setStyleSheet(" ");
 
@@ -116,7 +116,7 @@ void Aloitus::loginSlot(QNetworkReply *reply)
     qDebug()<<response_data;
     if(response_data=="true"){
         qDebug()<<"Oikea tunnus ...avaa form";
-        objValikko->show();
+        objValikko->naytaValikkoIkkuna();
         this->getUserInfo();
         ui->lineEditUsername->clear();
         ui->lineEditPassword->clear();
@@ -165,5 +165,38 @@ void Aloitus::saveUserInfo(QNetworkReply *reply)
 }
 
 void Aloitus::openAloitus(){
-    this->show();
+    objTimer->start(30000);
+    this->showFullScreen();
+    //qDebug()<<"timer started -> open aloitus";
+}
+
+bool Aloitus::eventFilter(QObject *obj, QEvent *e)
+{
+    if(e->type() == QEvent::ChildAdded) // install eventfilter on children
+    {
+        QChildEvent *ce = static_cast<QChildEvent*>(e);
+        ce->child()->installEventFilter(this);
+    }
+    else if(e->type() == QEvent::ChildRemoved) // remove eventfilter from children
+    {
+        QChildEvent *ce = static_cast<QChildEvent*>(e);
+        ce->child()->removeEventFilter(this);
+    }
+    if((e->type() == QEvent::MouseButtonPress) || (e->type() == QEvent::KeyPress)) //check for mouse or key press
+    {
+        objTimer->start(30000);
+       //qDebug() << "timer restarted on mouse or key press";
+    }
+    return QWidget::eventFilter( obj, e ); // apply default filter
+}
+
+void Aloitus::suljeIkkuna(){
+    objTimer->stop();
+    //qDebug() << "timer stopped";
+    ui->lineEditUsername->clear();
+    ui->lineEditPassword->clear();
+    editingUsername = true;
+    ui->lineEditUsername->setStyleSheet(" ");
+    ui->lineEditPassword->setStyleSheet(" ");
+    this->close();
 }

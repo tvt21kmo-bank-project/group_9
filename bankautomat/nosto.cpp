@@ -10,8 +10,11 @@ Nosto::Nosto(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Nosto)
 {
-   // installEventFilter(this);
+    installEventFilter(this);
     ui->setupUi(this);
+
+    objTimerNosto = new QTimer(this);
+    connect(objTimerNosto,SIGNAL(timeout()), this, SLOT(suljeIkkuna()));
 
     Keypad *keypad = new Keypad(this);
     connect(keypad, SIGNAL(numpadiaPainettu(QString)),
@@ -22,12 +25,16 @@ Nosto::Nosto(QWidget *parent) :
 
 Nosto::~Nosto()
 {
-   // removeEventFilter(this);
+    removeEventFilter(this);
     delete ui;
     ui = nullptr;
+    delete objTimerNosto;
+    objTimerNosto = nullptr;
 }
 
 void Nosto::showNosto(){
+    objTimerNosto->start(20000);
+    //qDebug()<<"timer nosto started -> showNosto";
     this->showFullScreen();
     QString string = this->getTilinumero();
     ui->infoNosto->setText("");
@@ -49,35 +56,6 @@ void Nosto::showNosto(){
     ui->label_6->show();
     ui->label_7->show();
 }
-
-/*
-bool Nosto::eventFilter(QObject *obj, QEvent *e)
-{
-    //vaatii vielä signaalin liittämisen ikkunan sulkemiseen
-
-    timer.start(timerInterval);
-    qDebug() << "timer started";
-
-    if(e->type() == QEvent::ChildAdded) // install eventfilter on children
-    {
-        QChildEvent *ce = static_cast<QChildEvent*>(e);
-        ce->child()->installEventFilter(this);
-    }
-    else if(e->type() == QEvent::ChildRemoved) // remove eventfilter from children
-    {
-        QChildEvent *ce = static_cast<QChildEvent*>(e);
-        ce->child()->removeEventFilter(this);
-    }
-    if(e->type() == QEvent::MouseButtonRelease) //filter out Mouse Buttons Relases
-    {
-       timer.stop();
-       qDebug() << "mouse event happened";
-       timer.start(timerInterval);
-       qDebug() << "timer started";
-       return true; // filter these events out
-    }
-    return QWidget::eventFilter( obj, e ); // apply default filter / just a wrapper, we don't want to override any events
-}*/
 
 void Nosto::on_btnNostoAlkuun_clicked()
 {
@@ -146,15 +124,15 @@ void Nosto::custom_summan_syotto(const QString &text)
 
 void Nosto::infoNostoSlot(QNetworkReply *reply)
 {
-    QTimer::singleShot(6000, this, &Nosto::onTimeout);
+    QTimer::singleShot(10000, this, &Nosto::onTimeout);
     QByteArray response_data=reply->readAll();
     qDebug()<<response_data;
     if(response_data == "1"){
-        ui->infoNosto->setText("NOSTO ONNISTUI. KIITOS AUTOMAATIN KÄYTÖSTÄ. PALATAAN AUTOMAATTISESTI TAKAISIN.");
+        ui->infoNosto->setText("NOSTO ONNISTUI.<br>KIITOS AUTOMAATIN KÄYTÖSTÄ.<br><br>PALATAAN AUTOMAATTISESTI TAKAISIN.");
         this->NostoLaskuri();
     }
     else {
-        ui->infoNosto->setText("VALITETTAVASTI NOSTO EPÄONNISTUI. TARKISTA SALDO JA YRITÄ UUDELLEEN.");
+        ui->infoNosto->setText("VALITETTAVASTI NOSTO EPÄONNISTUI.<br><br>TARKISTA SALDO JA YRITÄ UUDELLEEN.");
     }
 }
 
@@ -238,6 +216,14 @@ void Nosto::clear_animation_screen()
     ui->label_note500->clear();
 }
 
+void Nosto::suljeIkkuna()
+{
+    objTimerNosto->stop();
+    //qDebug() << "timer nosto stopped";
+    this->close();
+    emit closed();
+}
+
 void Nosto::hideButtons(){
     ui->btnNosto20->hide();
     ui->btnNosto40->hide();
@@ -255,7 +241,7 @@ void Nosto::hideButtons(){
     ui->label_5->hide();
     ui->label_6->hide();
     ui->label_7->hide();
-    QTimer::singleShot(8000, this, SLOT(on_btnNostoAlkuun_clicked()));
+    QTimer::singleShot(10000, this, SLOT(on_btnNostoAlkuun_clicked()));
 }
 
 void Nosto::NostoLaskuri()
@@ -333,4 +319,24 @@ void Nosto::NostoLaskuri()
         movie10->setSpeed(25);
     }
     this->hideButtons();
+}
+
+bool Nosto::eventFilter(QObject *obj, QEvent *e)
+{
+    if(e->type() == QEvent::ChildAdded) // install eventfilter on children
+    {
+        QChildEvent *ce = static_cast<QChildEvent*>(e);
+        ce->child()->installEventFilter(this);
+    }
+    else if(e->type() == QEvent::ChildRemoved) // remove eventfilter from children
+    {
+        QChildEvent *ce = static_cast<QChildEvent*>(e);
+        ce->child()->removeEventFilter(this);
+    }
+    if((e->type() == QEvent::MouseButtonPress) || (e->type() == QEvent::KeyPress)) //check for mouse or key press
+    {
+        objTimerNosto->start(20000);
+       //qDebug() << "timer restarted on mouse or key press";
+    }
+    return QWidget::eventFilter( obj, e ); // apply default filter
 }
