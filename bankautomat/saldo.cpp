@@ -5,12 +5,25 @@ saldo::saldo(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::saldo)
 {
+    installEventFilter(this);
     ui->setupUi(this);
+
+    objTimerSaldo = new QTimer(this);
+    connect(objTimerSaldo,SIGNAL(timeout()), this, SLOT(suljeIkkuna()));
 }
 
 saldo::~saldo()
 {
+    removeEventFilter(this);
     delete ui;
+    delete objTimerSaldo;
+    objTimerSaldo = nullptr;
+}
+
+void saldo::naytaSaldoIkkuna(){
+    objTimerSaldo->start(20000);
+    //qDebug()<<"timer saldo started -> showNosto";
+    this->showFullScreen();
 }
 
 void saldo::naytasaldo(QString username)
@@ -43,4 +56,32 @@ void saldo::getSaldoSlot(QNetworkReply *reply)
     ui->txtSaldo->setText(saldo);
     reply->deleteLater();
     manager->deleteLater();
+}
+
+void saldo::suljeIkkuna()
+{
+    objTimerSaldo->stop();
+    //qDebug() << "timer saldo stopped";
+    this->close();
+    emit closed();
+}
+
+bool saldo::eventFilter(QObject *obj, QEvent *e)
+{
+    if(e->type() == QEvent::ChildAdded) // install eventfilter on children
+    {
+        QChildEvent *ce = static_cast<QChildEvent*>(e);
+        ce->child()->installEventFilter(this);
+    }
+    else if(e->type() == QEvent::ChildRemoved) // remove eventfilter from children
+    {
+        QChildEvent *ce = static_cast<QChildEvent*>(e);
+        ce->child()->removeEventFilter(this);
+    }
+    if((e->type() == QEvent::MouseButtonPress) || (e->type() == QEvent::KeyPress)) //check for mouse or key press
+    {
+        objTimerSaldo->start(20000);
+       //qDebug() << "timer restarted on mouse or key press";
+    }
+    return QWidget::eventFilter( obj, e ); // apply default filter
 }

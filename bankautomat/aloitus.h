@@ -3,7 +3,7 @@
 
 #include "valikko.h"
 
-#include <QWidget>
+#include <QTimer>
 #include <QtNetwork>
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
@@ -19,8 +19,10 @@ class Aloitus : public QWidget
 public:
     explicit Aloitus(QWidget *parent = nullptr);
     ~Aloitus();
+    QTimer *objTimer;
 
 public slots:
+    void openAloitus();
     void numpadinSyotto(const QString &teksti);
 
 private slots:
@@ -28,7 +30,7 @@ private slots:
     void saveUserInfo (QNetworkReply *reply);
     int on_btnLogin_clicked();
     void getUserInfo();
-    void openAloitus();
+    void suljeIkkuna();
 
 private:
     int Ktunnus;
@@ -42,8 +44,7 @@ private:
 
     bool editingUsername = true;
     bool valmista = false;
-
-//  EventFilter *filtr;
+    bool eventFilter(QObject*, QEvent*);
 };
 
 #endif // ALOITUS_H
