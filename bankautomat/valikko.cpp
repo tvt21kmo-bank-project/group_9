@@ -16,7 +16,7 @@ valikko::valikko(QWidget *parent) :
     objSaldo = new saldo;
     connect(objSaldo,SIGNAL(closed()), this, SLOT(startTimer()));
     objTapahtumat = new tapahtumat;
-    //connect(objTapahtumat,SIGNAL(closed()), this, SLOT(startTimer()));
+    connect(objTapahtumat,SIGNAL(closed()), this, SLOT(startTimer()));
     objTilisiirto = new Tilisiirto;
     connect(objTilisiirto,SIGNAL(closed()), this, SLOT(startTimer()));
 }
@@ -54,7 +54,7 @@ void valikko::kirjautumistietojenTallentaminen(QStringList lista){
 void valikko::naytaValikkoIkkuna()
 {
     objTimerValikko->start(30000);
-    qDebug()<<"timer valikko started -> naytaValikkoIkkuna";
+    //qDebug()<<"timer valikko started -> naytaValikkoIkkuna";
     this->showFullScreen();
 }
 
@@ -88,13 +88,12 @@ void valikko::on_btnKirjauduUlos_clicked()
     sukunimi = "0";
     kayttajatunnus = "0";
     tilinro = "0";
-    //emit closeValikko(); kommentoidaan tämä niin ei palata kirjautumisruutuun, vaan aloitusnäkymään
 }
 
 void valikko::on_btnTapahtumat_clicked()
 {
     objTimerValikko->stop();
-    objTapahtumat->show();
+    objTapahtumat->naytaTapahtumatIkkuna();
     objTapahtumat->naytatapahtumat(kayttajatunnus);
 }
 
