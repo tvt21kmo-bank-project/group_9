@@ -33,8 +33,11 @@
      <pointsize>17</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;</string>
+   </property>
    <property name="text">
-    <string>Tilisiirto</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="btnNostaRahaa">
@@ -317,6 +320,22 @@
     <string/>
    </property>
   </widget>
+  <widget class="QPushButton" name="btnTapahtumat">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>360</y>
+     <width>75</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>background_valikko</zorder>
   <zorder>btnTilisiirto</zorder>
   <zorder>btnNostaRahaa</zorder>
@@ -331,6 +350,7 @@
   <zorder>btnKirjauduUlos</zorder>
   <zorder>label_tilinomistaja</zorder>
   <zorder>label_tilinumero</zorder>
+  <zorder>btnTapahtumat</zorder>
  </widget>
  <resources>
   <include location="resources.qrc"/>

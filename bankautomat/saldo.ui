@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>717</width>
-    <height>513</height>
+    <width>760</width>
+    <height>829</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,14 +16,214 @@
   <widget class="QTextEdit" name="txtSaldo">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>110</y>
-     <width>411</width>
-     <height>301</height>
+     <x>220</x>
+     <y>260</y>
+     <width>321</width>
+     <height>141</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
   </widget>
+  <widget class="QLabel" name="background_valikko">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>791</width>
+     <height>1041</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>687</width>
+     <height>871</height>
+    </size>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resources.qrc">:/new/prefix1/bankautomat_front_panel.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_naytasaldo">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>200</y>
+     <width>51</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>Saldo</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_naytasaldo_2">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>200</y>
+     <width>101</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>Tilinumero</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_naytasaldo_3">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>200</y>
+     <width>71</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>Etunimi</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_naytasaldo_4">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>200</y>
+     <width>81</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>Sukunimi</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_naytasaldo_5">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>140</y>
+     <width>181</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>Näytä Saldo</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnNostoAlkuun">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>440</y>
+     <width>51</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>440</y>
+     <width>171</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>22</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;</string>
+   </property>
+   <property name="text">
+    <string>Sulje</string>
+   </property>
+  </widget>
+  <zorder>background_valikko</zorder>
+  <zorder>txtSaldo</zorder>
+  <zorder>label_naytasaldo</zorder>
+  <zorder>label_naytasaldo_2</zorder>
+  <zorder>label_naytasaldo_3</zorder>
+  <zorder>label_naytasaldo_4</zorder>
+  <zorder>label_naytasaldo_5</zorder>
+  <zorder>btnNostoAlkuun</zorder>
+  <zorder>label_7</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -20,6 +20,7 @@ SOURCES += \
    saldo.cpp \
     tilisiirto.cpp \
     valikko.cpp \
+    tapahtumat.cpp
 
 HEADERS += \
     aloitus.h \
@@ -29,6 +30,7 @@ HEADERS += \
    saldo.h \
     tilisiirto.h \
     valikko.h \
+    tapahtumat.h
 
 FORMS += \
     aloitus.ui \
@@ -38,6 +40,7 @@ FORMS += \
    saldo.ui \
     tilisiirto.ui \
     valikko.ui \
+    tapahtumat.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

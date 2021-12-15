@@ -26,6 +26,7 @@ public slots:
     void getSaldoSlot(QNetworkReply *reply);
 
 private slots:
+    void on_btnNostoAlkuun_clicked();
     void suljeIkkuna();
 
 signals:
