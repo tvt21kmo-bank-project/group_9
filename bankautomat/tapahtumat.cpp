@@ -5,12 +5,34 @@ tapahtumat::tapahtumat(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::tapahtumat)
 {
+    installEventFilter(this);
     ui->setupUi(this);
+
+    objTimerTapahtumat = new QTimer(this);
+    connect(objTimerTapahtumat,SIGNAL(timeout()), this, SLOT(suljeIkkuna()));
 }
 
 tapahtumat::~tapahtumat()
 {
+    removeEventFilter(this);
     delete ui;
+    delete objTimerTapahtumat;
+    objTimerTapahtumat = nullptr;
+}
+
+void tapahtumat::naytaTapahtumatIkkuna()
+{
+    objTimerTapahtumat->start(20000);
+    //qDebug()<<"timer tapahtumat started";
+    this->showFullScreen();
+}
+
+void tapahtumat::suljeIkkuna()
+{
+    objTimerTapahtumat->stop();
+    //qDebug() << "timer tapahtumat stopped";
+    this->close();
+    emit closed();
 }
 
 void tapahtumat::naytatapahtumat(QString username)
@@ -49,4 +71,24 @@ void tapahtumat::on_btnNostoAlkuun_clicked()
 {
     this->suljeIkkuna();
     close();
+}
+
+bool tapahtumat::eventFilter(QObject *obj, QEvent *e)
+{
+    if(e->type() == QEvent::ChildAdded) // install eventfilter on children
+    {
+        QChildEvent *ce = static_cast<QChildEvent*>(e);
+        ce->child()->installEventFilter(this);
+    }
+    else if(e->type() == QEvent::ChildRemoved) // remove eventfilter from children
+    {
+        QChildEvent *ce = static_cast<QChildEvent*>(e);
+        ce->child()->removeEventFilter(this);
+    }
+    if((e->type() == QEvent::MouseButtonPress) || (e->type() == QEvent::KeyPress)) //check for mouse or key press
+    {
+        objTimerTapahtumat->start(20000);
+       //qDebug() << "timer restarted on mouse or key press";
+    }
+    return QWidget::eventFilter( obj, e ); // apply default filter
 }

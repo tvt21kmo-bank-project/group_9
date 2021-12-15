@@ -48,7 +48,6 @@ private:
     int nostonSumma;
     int nostonArvo;
     QString tilinumero;
-    //int timerInterval = 5000;
 
     void hideButtons();
     void kasitteleNosto(int nostonSumma);
