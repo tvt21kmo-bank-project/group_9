@@ -27,9 +27,10 @@ Nosto::~Nosto()
     ui = nullptr;
 }
 
-void Nosto::showNosto(){
+void Nosto::showNosto(QString tilinumero){
     this->showFullScreen();
     ui->infoNosto->setText("");
+    ui->label_tilinro->setText("Tili: "+tilinumero);
     ui->btnNosto20->show();
     ui->btnNosto40->show();
     ui->btnNosto60->show();
@@ -119,7 +120,7 @@ void Nosto::on_btnNostoMuuSumma_clicked()
     int muu_summa = ui->syota_muu_summa->text().toInt();
     if(muu_summa %10 != 0 || muu_summa == 0) {
         ui->infoNosto->setText("Valitettavasti automaattimme voi luovuttaa vain 10, 20, 50, 100, 200 ja 500 euron seteleitä");
-        QTimer::singleShot(5000, this, SLOT(onTimeout()));
+        QTimer::singleShot(6000, this, SLOT(onTimeout()));
         ui->syota_muu_summa->setText("");
     } else {
         this->kasitteleNosto(muu_summa);
@@ -144,15 +145,15 @@ void Nosto::custom_summan_syotto(const QString &text)
 
 void Nosto::infoNostoSlot(QNetworkReply *reply)
 {
-    QTimer::singleShot(4000, this, &Nosto::onTimeout);
+    QTimer::singleShot(6000, this, &Nosto::onTimeout);
     QByteArray response_data=reply->readAll();
     qDebug()<<response_data;
     if(response_data == "1"){
-        ui->infoNosto->setText("NOSTO ONNISTUI. KIITOS AUTOMAATIN KÄYTÖSTÄ.");
+        ui->infoNosto->setText("NOSTO ONNISTUI. KIITOS AUTOMAATIN KÄYTÖSTÄ. PALATAAN AUTOMAATTISESTI TAKAISIN.");
         this->NostoLaskuri();
     }
     else {
-        ui->infoNosto->setText("NOSTO EPÄONNISTUI.");
+        ui->infoNosto->setText("VALITETTAVASTI NOSTO EPÄONNISTUI. TARKISTA SALDO JA YRITÄ UUDELLEEN.");
     }
 }
 
@@ -207,7 +208,7 @@ void Nosto::naytaAnimaatio(QMovie *fileaddress)
     //lähetä signaali slottiin, joka päivittää animaatioruudun kun "finished()" vastaanotettu
     connect(fileaddress, &QMovie::finished, this, [&]()
     {
-        QTimer::singleShot(3000, this, SLOT(clear_animation_screen()));
+        QTimer::singleShot(4000, this, SLOT(clear_animation_screen()));
     });
 }
 
@@ -243,7 +244,7 @@ void Nosto::hideButtons(){
     ui->label_5->hide();
     ui->label_6->hide();
     ui->label_7->hide();
-    QTimer::singleShot(5000, this, SLOT(on_btnNostoAlkuun_clicked()));
+    QTimer::singleShot(8000, this, SLOT(on_btnNostoAlkuun_clicked()));
 }
 
 void Nosto::NostoLaskuri()
@@ -273,7 +274,7 @@ void Nosto::NostoLaskuri()
 //   [*500 lohko*, *200 lohko*, *100 lohko*, *50 lohko*, *20 lohko*, *10 lohko*]
 //    eli esim [1, 0, 0, 2, 0, 1] = 560 eur
 
-    qDebug()<< "setelit:" << setelit;
+    //qDebug()<< "setelit:" << setelit;
 
     int viisisataset = setelit[0];
     int kaksisataset = setelit[1];
@@ -283,17 +284,17 @@ void Nosto::NostoLaskuri()
     int kymmenet = setelit[5];
 
     // alla alustetaan eri seteleiden animaatioiden .gif tiedostot
-    QMovie *movie500 = new QMovie("note500.gif");
+    QMovie *movie500 = new QMovie(":/new/prefix1/note500.gif");
         ui->label_note500->setMovie(movie500);
-    QMovie *movie200 = new QMovie("note200.gif");
+    QMovie *movie200 = new QMovie(":/new/prefix1/note200.gif");
         ui->label_note200->setMovie(movie200);
-    QMovie *movie100 = new QMovie("note100.gif");
+    QMovie *movie100 = new QMovie(":/new/prefix1/note100.gif");
         ui->label_note100->setMovie(movie100);
-    QMovie *movie50 = new QMovie("note50.gif");
+    QMovie *movie50 = new QMovie(":/new/prefix1/note50.gif");
         ui->label_note50->setMovie(movie50);
-    QMovie *movie20 = new QMovie("note20.gif");
+    QMovie *movie20 = new QMovie(":/new/prefix1/note20.gif");
         ui->label_note20->setMovie(movie20);
-    QMovie *movie10 = new QMovie("note10.gif");
+    QMovie *movie10 = new QMovie(":/new/prefix1/note10.gif");
         ui->label_note10->setMovie(movie10);
 
     for (int i = 0; i < viisisataset; i++){

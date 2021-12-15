@@ -44,4 +44,17 @@ router.post('/',
   }
 );
 
+router.get('/:id?',
+ function(request, response) {
+  if (request.params.id) {
+    login.getById(request.params.id, function(err, dbResult) {
+      if (err) {
+        response.json(err);
+      } else {
+          response.json(dbResult);
+      }
+    });
+  }
+});
+
 module.exports=router;

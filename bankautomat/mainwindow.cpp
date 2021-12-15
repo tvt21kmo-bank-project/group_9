@@ -6,87 +6,138 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    objTilisiirto = new Tilisiirto;
-    objNosto = new Nosto;
-    objValikko = new valikko;
-
-    connect(objValikko, SIGNAL(openTilisiirto()),
-            this, SLOT(openTilisiirtoUi()));
-    connect(objValikko, SIGNAL(openNostaRahaa()),
-            this, SLOT(openNostaRahaaUi()));
+    objAloitus = new Aloitus;
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
     ui = nullptr;
-    delete objTilisiirto;
-    objTilisiirto = nullptr;
-    delete objNosto;
-    objNosto = nullptr;
-    delete objValikko;
-    objValikko = nullptr;
+    delete objAloitus;
+    objAloitus = nullptr;
 }
 
-void MainWindow::on_btnLogin_clicked()
+void MainWindow::on_btnAloitus_clicked()
 {
-    QJsonObject json; //luodaan JSON objekti ja lisätään data
-    json.insert("Kayttajatunnus",ui->lineEditUsername->text());
-    json.insert("Salasana",ui->lineEditPassword->text());
-    QString site_url="http://localhost:3000/login";
-    QString credentials="newAdmin:newPass";
-    QNetworkRequest request((site_url));
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-    QByteArray data = credentials.toLocal8Bit().toBase64();
-    QString headerData = "Basic " + data;
-    request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
-    loginManager = new QNetworkAccessManager(this);
-    connect(loginManager, SIGNAL(finished(QNetworkReply*)),
-    this, SLOT(loginSlot(QNetworkReply*)));
-    reply = loginManager->post(request, QJsonDocument(json).toJson());
+    objAloitus->show();
 }
 
-void MainWindow::loginSlot(QNetworkReply *reply)
+
+void MainWindow::on_btnAloitus_2_clicked()
 {
-    QByteArray response_data=reply->readAll();
-    qDebug()<<response_data;
-    if(response_data=="true"){
-        qDebug()<<"Oikea tunnus ...avaa form";
-        objValikko->show();
-    }
-    else {
-        ui->lineEditPassword->setText("");
-        ui->lineEditUsername->setText("");
-        qDebug()<<"Käyttäjätunnus ja salasana ei täsmää";
-    }
+    objAloitus->show();
 }
 
-void MainWindow::openTilisiirtoUi()
+
+void MainWindow::on_btnAloitus_3_clicked()
 {
-    objTilisiirto->show();
+    objAloitus->show();
 }
 
-void MainWindow::TilisiirtoButtonClicked()
-{
 
+void MainWindow::on_btnAloitus_4_clicked()
+{
+    objAloitus->show();
 }
 
-void MainWindow::closeTilisiirtoUi()
+
+void MainWindow::on_btnAloitus_5_clicked()
 {
-    objTilisiirto->hide();
+    this->hide();
+    objAloitus->show();
 }
 
-void MainWindow::openNostaRahaaUi()
+
+void MainWindow::on_btnAloitus_6_clicked()
 {
-    objNosto->show();
+    objAloitus->show();
 }
 
-void MainWindow::NostaRahaaButtonClicked()
+
+void MainWindow::on_btnAloitus_7_clicked()
 {
-    /*custom -summa, ei vielä toteutettu*/
+    objAloitus->show();
 }
 
-void MainWindow::closeNostaRahaaUi()
+
+void MainWindow::on_btnAloitus_8_clicked()
 {
-    objNosto->hide();
+    objAloitus->show();
+}
+
+
+void MainWindow::on_btnAloitus_9_clicked()
+{
+    objAloitus->show();
+}
+
+
+void MainWindow::on_btnAloitus_10_clicked()
+{
+    objAloitus->show();
+}
+
+
+void MainWindow::on_btnAloitus_11_clicked()
+{
+    objAloitus->show();
+}
+
+
+void MainWindow::on_btnAloitus_12_clicked()
+{
+    objAloitus->show();
+}
+
+
+void MainWindow::on_btnAloitus_13_clicked()
+{
+    objAloitus->show();
+}
+
+
+void MainWindow::on_btnAloitus_14_clicked()
+{
+    objAloitus->show();
+}
+
+
+void MainWindow::on_btnAloitus_15_clicked()
+{
+    objAloitus->show();
+}
+
+
+void MainWindow::on_btnAloitus_16_clicked()
+{
+    objAloitus->show();
+}
+
+
+void MainWindow::on_btnAloitus_17_clicked()
+{
+    objAloitus->show();
+}
+
+
+void MainWindow::on_btnAloitus_18_clicked()
+{
+    objAloitus->show();
+}
+
+
+void MainWindow::on_btnAloitus_19_clicked()
+{
+    objAloitus->show();
+}
+
+
+void MainWindow::on_btnAloitus_20_clicked()
+{
+    objAloitus->show();
+}
+
+void MainWindow::on_btnAloitus_21_clicked()
+{
+    objAloitus->show();
 }

@@ -17,6 +17,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     nosto.cpp \
+   saldo.cpp \
     tilisiirto.cpp \
     valikko.cpp \
 
@@ -25,6 +26,7 @@ HEADERS += \
     keypad.h \
     mainwindow.h \
     nosto.h \
+   saldo.h \
     tilisiirto.h \
     valikko.h \
 
@@ -33,6 +35,7 @@ FORMS += \
     keypad.ui \
     mainwindow.ui \
     nosto.ui \
+   saldo.ui \
     tilisiirto.ui \
     valikko.ui \
 

@@ -2,6 +2,8 @@
 #define VALIKKO_H
 
 #include "nosto.h"
+#include "saldo.h"
+#include "tilisiirto.h"
 
 #include <QWidget>
 #include <QDialog>
@@ -21,24 +23,31 @@ public:
     explicit valikko(QWidget *parent = nullptr);
     ~valikko();
 
+    void kirjautumistietojenTallentaminen(QStringList);
+
 private slots:
     void on_btnTilisiirto_clicked();
     void on_btnNostaRahaa_clicked();
     void on_btnNaytaSaldo_clicked();
-    //void getSaldoSlot (QNetworkReply *reply);
+
+    void on_btnKirjauduUlos_clicked();
 
 private:
     Ui::valikko *ui;
     QNetworkAccessManager *manager;
-    QNetworkAccessManager *oneBookManager;
     QNetworkAccessManager *loginManager;
     QNetworkReply *reply;
 
     Nosto *objNosto;
+    saldo *objSaldo;
+    Tilisiirto *objTilisiirto;
+
+    QString etunimi, sukunimi, kayttajatunnus, tilinro;
 
 signals:
     void openTilisiirto();
     void openNostaRahaa();
+    void closeValikko();
 };
 
 #endif // VALIKKO_H
