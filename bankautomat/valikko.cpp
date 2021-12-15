@@ -10,6 +10,7 @@ valikko::valikko(QWidget *parent) :
     objNosto = new Nosto;
     objSaldo = new saldo;
     objTilisiirto = new Tilisiirto;
+    objTapahtumat = new tapahtumat;
 }
 
 valikko::~valikko()
@@ -21,6 +22,8 @@ valikko::~valikko()
     objSaldo = nullptr;
     delete objTilisiirto;
     objTilisiirto = nullptr;
+    delete objTapahtumat;
+    objTapahtumat = nullptr;
 }
 
 void valikko::kirjautumistietojenTallentaminen(QStringList lista){
@@ -66,3 +69,9 @@ void valikko::on_btnKirjauduUlos_clicked()
     emit closeValikko();
 }
 
+
+void valikko::on_btnTapahtumat_clicked()
+{
+    objTapahtumat->show();
+    objTapahtumat->naytatapahtumat(kayttajatunnus);
+}

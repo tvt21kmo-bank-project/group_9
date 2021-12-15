@@ -24,6 +24,9 @@ public:
 public slots:
     void getSaldoSlot(QNetworkReply *reply);
 
+private slots:
+    void on_btnNostoAlkuun_clicked();
+
 private:
     Ui::saldo *ui;
     QNetworkAccessManager *manager;

@@ -4,6 +4,7 @@
 #include "nosto.h"
 #include "saldo.h"
 #include "tilisiirto.h"
+#include "tapahtumat.h"
 
 #include <QWidget>
 #include <QDialog>
@@ -29,6 +30,7 @@ private slots:
     void on_btnTilisiirto_clicked();
     void on_btnNostaRahaa_clicked();
     void on_btnNaytaSaldo_clicked();
+    void on_btnTapahtumat_clicked();
 
     void on_btnKirjauduUlos_clicked();
 
@@ -41,6 +43,7 @@ private:
     Nosto *objNosto;
     saldo *objSaldo;
     Tilisiirto *objTilisiirto;
+    tapahtumat *objTapahtumat;
 
     QString etunimi, sukunimi, kayttajatunnus, tilinro;
 
