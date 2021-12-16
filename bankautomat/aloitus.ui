@@ -22,15 +22,15 @@
   <widget class="QLineEdit" name="lineEditPassword">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>230</y>
-     <width>141</width>
-     <height>31</height>
+     <x>300</x>
+     <y>300</y>
+     <width>171</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <pointsize>20</pointsize>
     </font>
    </property>
    <property name="text">
@@ -43,15 +43,15 @@
   <widget class="QLabel" name="label_kayttajatunnus">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>130</y>
-     <width>181</width>
-     <height>16</height>
+     <x>280</x>
+     <y>140</y>
+     <width>221</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <pointsize>15</pointsize>
      <weight>75</weight>
      <bold>true</bold>
     </font>
@@ -66,9 +66,9 @@
   <widget class="QPushButton" name="btnLogin">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>310</y>
-     <width>141</width>
+     <x>670</x>
+     <y>440</y>
+     <width>61</width>
      <height>51</height>
     </rect>
    </property>
@@ -77,32 +77,38 @@
      <pointsize>12</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;</string>
+   </property>
    <property name="text">
-    <string>Kirjaudu</string>
+    <string/>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEditUsername">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>160</y>
-     <width>141</width>
-     <height>31</height>
+     <x>300</x>
+     <y>190</y>
+     <width>171</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <pointsize>20</pointsize>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true"/>
    </property>
+   <property name="text">
+    <string/>
+   </property>
   </widget>
   <widget class="QLabel" name="background_login">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>-20</x>
      <y>0</y>
      <width>791</width>
      <height>1041</height>
@@ -124,15 +130,15 @@
   <widget class="QLabel" name="label_salasana">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>200</y>
+     <x>320</x>
+     <y>250</y>
      <width>131</width>
-     <height>16</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>12</pointsize>
+     <pointsize>15</pointsize>
      <weight>75</weight>
      <bold>true</bold>
     </font>
@@ -147,13 +153,57 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>549</y>
+     <x>220</x>
+     <y>550</y>
      <width>281</width>
      <height>181</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="MyVerticalLayout"/>
+  </widget>
+  <widget class="QLabel" name="label_salasana_2">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>450</y>
+     <width>171</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>18</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>KIRJAUDU</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="kirjauduInfo">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>440</y>
+     <width>341</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: yellow;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
   </widget>
   <zorder>background_login</zorder>
   <zorder>lineEditPassword</zorder>
@@ -162,6 +212,8 @@
   <zorder>lineEditUsername</zorder>
   <zorder>label_salasana</zorder>
   <zorder>verticalLayoutWidget</zorder>
+  <zorder>label_salasana_2</zorder>
+  <zorder>kirjauduInfo</zorder>
  </widget>
  <resources>
   <include location="resources.qrc"/>

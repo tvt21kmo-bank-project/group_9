@@ -24,11 +24,17 @@ Tilisiirto::~Tilisiirto()
     objTimerTilisiirto = nullptr;
 }
 
-void Tilisiirto::naytaTilisiirtoIkkuna()
+void Tilisiirto::naytaTilisiirtoIkkuna(QString nro)
 {
+    ui->leDebitMaksaja->setEnabled(true);
+    ui->leDebitSaaja->setEnabled(true);
+    ui->leDebitSumma->setEnabled(true);
     objTimerTilisiirto->start(20000);
     //qDebug()<<"timer nosto started -> showNosto";
     this->showFullScreen();
+    ui->leDebitMaksaja->setReadOnly(true);
+    ui->leDebitMaksaja->setText(nro);
+    tilinumero = nro;
 }
 
 void Tilisiirto::btnclicked(){
@@ -39,7 +45,7 @@ void Tilisiirto::on_btnDebit_clicked()
 {
     emit btnPainettu();
     QJsonObject json; //luodaan JSON objekti ja lisätään data
-    json.insert("id1",ui->leDebitMaksaja->text());
+    json.insert("id1",tilinumero);
     json.insert("id2",ui->leDebitSaaja->text());
     json.insert("summa",ui->leDebitSumma->text());
     QString site_url="http://localhost:3000/bank/debit_tilisiirto";
@@ -61,15 +67,18 @@ void Tilisiirto::debitSlot(QNetworkReply *reply)
     qDebug()<<response_data;
     if(response_data == "1"){
         ui->labelDebitInfo->setText("Siirto onnistui");
-        ui->leDebitMaksaja->setText("");
         ui->leDebitSaaja->setText("");
         ui->leDebitSumma->setText("");
+        ui->leDebitMaksaja->setEnabled(false);
+        ui->leDebitSaaja->setEnabled(false);
+        ui->leDebitSumma->setEnabled(false);
+        QTimer::singleShot(5000, this, SLOT(on_btnTakaisin_clicked()));
     }
     else {
         ui->labelDebitInfo->setText("Siirto epäonnistui");
-        ui->leDebitMaksaja->setText("");
         ui->leDebitSaaja->setText("");
         ui->leDebitSumma->setText("");
+        QTimer::singleShot(3000, this, SLOT(clearInfo()));
     }
 }
 
@@ -111,3 +120,19 @@ bool Tilisiirto::eventFilter(QObject *obj, QEvent *e)
     return QWidget::eventFilter( obj, e ); // apply default filter
 }
 
+
+void Tilisiirto::on_btnTakaisin_clicked()
+{
+    ui->labelDebitInfo->setText("");
+    ui->leDebitMaksaja->setText("");
+    ui->leDebitSaaja->setText("");
+    ui->leDebitSumma->setText("");
+    objTimerTilisiirto->stop();
+    //qDebug() << "timer tilisiirto stopped";
+    this->close();
+    emit closed();
+}
+
+void Tilisiirto::clearInfo(){
+    ui->labelDebitInfo->setText("");
+}

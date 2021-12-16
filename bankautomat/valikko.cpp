@@ -61,7 +61,7 @@ void valikko::naytaValikkoIkkuna()
 void valikko::on_btnTilisiirto_clicked()
 {
     objTimerValikko->stop();
-    objTilisiirto->naytaTilisiirtoIkkuna();
+    objTilisiirto->naytaTilisiirtoIkkuna(tilinro);
 }
 
 

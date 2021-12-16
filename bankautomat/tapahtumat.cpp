@@ -59,7 +59,7 @@ void tapahtumat::getTapahtumatSlot(QNetworkReply *reply)
     QString tapahtumat;
     foreach (const QJsonValue &value, json_array) {
     QJsonObject json_obj = value.toObject();
-    tapahtumat+=QString::number(json_obj["Summa"].toDouble())+" "+json_obj["Tapahtuma"].toString()+" "+json_obj["PVM"].toString()+" "+json_obj["tili"].toString()+"\r";
+    tapahtumat+=QString::number(json_obj["Summa"].toDouble())+" | "+json_obj["Tapahtuma"].toString()+" | "+json_obj["PVM"].toString()+" | "+json_obj["tili"].toString()+"<br><br>";
     }
     qDebug()<<tapahtumat;
     ui->txtTapahtumat->setText(tapahtumat);
