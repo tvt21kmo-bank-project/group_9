@@ -31,6 +31,7 @@ private slots:
     int on_btnLogin_clicked();
     void getUserInfo();
     void suljeIkkuna();
+    void clear_info_screen();
 
 private:
     int Ktunnus;

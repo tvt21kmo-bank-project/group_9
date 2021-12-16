@@ -120,12 +120,14 @@ void Aloitus::loginSlot(QNetworkReply *reply)
         this->getUserInfo();
         ui->lineEditUsername->clear();
         ui->lineEditPassword->clear();
-        this->hide();
+        this->hide(); 
     }
     else {
         ui->lineEditPassword->setText("");
         ui->lineEditUsername->setText("");
         qDebug()<<"Käyttäjätunnus ja salasana ei täsmää";
+        ui->kirjauduInfo->setText(" Käyttäjätunnus tai<br> salasana ei täsmää");
+        QTimer::singleShot(4000, this, SLOT(clear_info_screen()));
     }
 }
 
@@ -199,4 +201,9 @@ void Aloitus::suljeIkkuna(){
     ui->lineEditUsername->setStyleSheet(" ");
     ui->lineEditPassword->setStyleSheet(" ");
     this->close();
+}
+
+void Aloitus::clear_info_screen()
+{
+    ui->kirjauduInfo->setText("");
 }

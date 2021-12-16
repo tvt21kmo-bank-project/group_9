@@ -17,7 +17,7 @@ class Tilisiirto : public QDialog
 public:
     explicit Tilisiirto(QWidget *parent = nullptr);
     ~Tilisiirto(); 
-    void naytaTilisiirtoIkkuna();
+    void naytaTilisiirtoIkkuna(QString);
     QTimer *objTimerTilisiirto;
 
 private slots:
@@ -27,6 +27,9 @@ private slots:
     void creditSlot(QNetworkReply *reply);
     void debitSlot(QNetworkReply *reply);
     void suljeIkkuna();
+
+    void on_btnTakaisin_clicked();
+    void clearInfo();
 
 signals:
     void btnPainettu();
@@ -38,6 +41,7 @@ private:
     QNetworkAccessManager *debitManager;
     QNetworkReply *reply;
     bool eventFilter(QObject*, QEvent*);
+    QString tilinumero;
 };
 
 #endif // TILISIIRTO_H
